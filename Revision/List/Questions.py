@@ -160,7 +160,12 @@ def specified_list_after_removing_0th_4th_5th_elements(list):
             specified_list.append(list[element])
     return specified_list
 
+def specified_list_after_removing_0th_4th_5th_elements_using_list_comprehension(list):
+    specified_list = [list[i] for i in range(len(list)) if i in [0, 4, 5]]
+    return specified_list
 
-print(specified_list_after_removing_0th_4th_5th_elements(sample_list))
+# 13. Write a Python program to generate a 3*4*6 3D array whose each element is *
+
+
 
         
