@@ -166,6 +166,17 @@ def specified_list_after_removing_0th_4th_5th_elements_using_list_comprehension(
 
 # 13. Write a Python program to generate a 3*4*6 3D array whose each element is *
 
+# Approch 1
+print([[['*' for col in range(6) ]for col in range(4)] for row in range(3)])
 
+# Approch 2
+result = []
+for _ in range(3):  # Outer loop for the number of rows (3)
+    outer_list = []
+    for _ in range(4):  # Inner loop for the number of columns (4)
+        inner_list = ['*' for _ in range(6)]  # Innermost loop for 6 asterisks
+        outer_list.append(inner_list)
+    result.append(outer_list)
 
+print(result)
         
