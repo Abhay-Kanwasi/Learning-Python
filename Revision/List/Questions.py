@@ -179,4 +179,7 @@ for _ in range(3):  # Outer loop for the number of rows (3)
     result.append(outer_list)
 
 print(result)
-        
+
+
+# 14. Write a Python program to print the numbers of a specified list after removing even numbers from it.
+
