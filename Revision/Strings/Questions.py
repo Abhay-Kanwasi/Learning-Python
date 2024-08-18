@@ -132,3 +132,16 @@ def longest_word_and_length(list_of_words):
         return max(list_of_words, key=len)
     return f'Longest word : {longest_word(list_of_words)} \nLength of the longest word: {len(longest_word(list_of_words))}'
 
+"""
+Write a Python program to remove the nth index character from a nonempty string.
+
+string = 'abc'
+nth = 1
+output = 'ac'
+"""
+
+def remove_the_nth_element(string, n):
+    character = string[n]
+    return string.replace(character, '')
+
+print(remove_the_nth_element('abc', 1))
