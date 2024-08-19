@@ -60,6 +60,8 @@ def change_all_occurence_except_first(string):
 """
 Write a Python program to get a single string from two given strings, separated by a space and swap the first two characters of each string.
 
+Example :
+
 Sample String : 'abc', 'xyz'
 Expected Result : 'xyc abz'
 """
@@ -73,6 +75,8 @@ def single_string_from_two_given_strings(string1, string2):
 
 """
 Write a Python program to add 'ing' at the end of a given string (length should be at least 3). If the given string already ends with 'ing', add 'ly' instead. If the string length of the given string is less than 3, leave it unchanged.
+
+Example :
 
 Sample String : 'abc'
 Expected Result : 'abcing'
@@ -94,6 +98,8 @@ def add_ing_and_ly_to_string(string):
 
 """
 Write a Python program to find the first appearance of the substrings 'not' and 'poor' in a given string. If 'not' follows 'poor', replace the whole 'not'...'poor' substring with 'good'. Return the resulting string.
+
+Example :
 
 Sample String : 'The lyrics is not that poor!' 
 'The lyrics is poor!'
@@ -120,6 +126,8 @@ def result_string(string):
 """
 Write a Python function that takes a list of words and return the longest word and the length of the longest one.
 
+Example :
+
 Sample Output:
 Longest word: Exercises
 Length of the longest word: 9
@@ -132,8 +140,11 @@ def longest_word_and_length(list_of_words):
         return max(list_of_words, key=len)
     return f'Longest word : {longest_word(list_of_words)} \nLength of the longest word: {len(longest_word(list_of_words))}'
 
+
 """
 Write a Python program to remove the nth index character from a nonempty string.
+
+Example :
 
 string = 'abc'
 nth = 1
@@ -144,4 +155,91 @@ def remove_the_nth_element(string, n):
     character = string[n]
     return string.replace(character, '')
 
-print(remove_the_nth_element('abc', 1))
+
+"""
+Write a Python program to change a given string to a newly string where the first and last chars have been exchanged.
+
+Example :
+
+string = 'Abhay'
+newly_string = 'ybhaA'
+"""
+
+def exchange_first_and_last_letter(string):
+    newly_string = string[-1] + string[1:-1] + string[0]
+    return newly_string
+
+
+"""
+Write a Python program to remove characters that have odd index values in a given string.
+
+Example :
+
+string = 'Abhay'
+output = 'Aba'
+"""
+
+def remove_odd_index_character(string):
+    new_string = ''
+    for index in range(len(string)):
+        if index % 2 != 0:
+            pass
+        else:
+            new_string += string[index]
+    return new_string
+
+
+"""
+Write a Python program to count the occurrences of each word in a given sentence.
+
+Example : 
+
+sentence = 'This is abhay and abhay is a good boy'
+output = {'This: 1, 'is': 2, 'abhay' : 2, 'and' : 1, 'a' : 1, 'boy' : 1}
+"""
+
+def count_the_occurence_of_each_word_in_sentence(sentence):
+    list_of_words = sentence.split(' ')
+    occurence_of_words = {'word' : 'count'}
+    for word in list_of_words: 
+        if word in occurence_of_words.keys():
+            occurence_of_words[word] += 1
+        else:
+            occurence_of_words[word] = 1
+    return occurence_of_words
+
+
+"""
+Write a Python script that takes input from the user and displays that input back in upper and lower cases.
+
+Example :
+
+input = 'ABhaY'
+outptut 
+Lower case : abhay
+Upper case : ABHAY
+"""
+
+def give_lower_and_upper_case(string):
+    lower_case = string.lower()
+    upper_case = string.upper()
+    return f'\nlower case : {lower_case}\nupper case : {upper_case}'
+
+
+"""
+Write a Python program that accepts a comma-separated sequence of words as input and prints the distinct words in sorted form (alphanumerically).
+
+Example :
+
+Sample Words : red, white, black, red, green, black
+Expected Result : black, green, red, white
+"""
+
+def give_distinct_words(words_sequence):
+    list_of_words = words_sequence.split(',')
+    print(list_of_words.remove())
+    return ",".join(sorted(list(set(list_of_words))))
+
+# list_of_words = 'red, white, black, red, green, black'
+# print(give_distinct_words(list_of_words))
+
