@@ -240,6 +240,4 @@ def give_distinct_words(words_sequence):
     print(list_of_words.remove())
     return ",".join(sorted(list(set(list_of_words))))
 
-# list_of_words = 'red, white, black, red, green, black'
-# print(give_distinct_words(list_of_words))
 
