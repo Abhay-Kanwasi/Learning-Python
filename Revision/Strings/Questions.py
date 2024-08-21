@@ -241,3 +241,87 @@ def give_distinct_words(words_sequence):
     return ",".join(sorted(list(set(list_of_words))))
 
 
+"""
+Write a Python function to create an HTML string with tags around the word(s).
+
+Example:
+
+Sample function and result :
+add_tags('i', 'Python') -> '<i>Python</i>'
+add_tags('b', 'Python Tutorial') -> '<b>Python Tutorial </b>'
+"""
+
+def add_tags(tag, word):
+    return f'<{tag}>{word}</{tag}>'
+
+
+"""
+Write a Python function to insert a string in the middle of a string.
+
+Example :
+
+Sample function and result :
+insert_sting_middle('[[]]', 'Python') -> [[Python]]
+insert_sting_middle('{{}}', 'PHP') -> {{PHP}}
+"""
+
+
+def insert_string_middle(pattern, string):
+    return f'{pattern[:2]}{string}{pattern[-2:]}'
+
+
+"""
+Write a Python function to get a string made of 4 copies of the last two characters of a specified string (length must be at least 2).
+
+Example :
+
+Sample function and result :
+insert_end('Python') -> onononon
+insert_end('Exercises') -> eseseses
+"""
+
+def insert_end(string):
+    return string[-2:] * 4
+
+
+"""
+Write a Python function to get a string made of the first three characters of a specified string. If the length of the string is less than 3, return the original string.
+
+Example :
+
+Sample function and result :
+first_three('ipy') -> ipy
+first_three('python') -> pyt
+"""
+
+def first_three(string):
+    return string[:3]
+
+
+"""
+Write a Python program to get the last part of a string before a specified character.
+
+Example :
+
+Input : https://www.w3resource.com/python-exercises
+Output : https://www.w3resource.com/python
+"""
+
+def last_part_after_specified_character(special_character, string):
+    index = string.index(special_character)
+    return string[:index]
+
+
+"""
+Write a Python function to reverse a string if its length is a multiple of 4.
+
+Example :
+
+input : 'Abhay'
+output : 'yahbA'
+input : 'Abh'
+output : 'Abh'
+"""
+
+# def reverse_string_if_multiple_of_4
+
