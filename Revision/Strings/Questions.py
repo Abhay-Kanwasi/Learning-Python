@@ -317,11 +317,25 @@ Write a Python function to reverse a string if its length is a multiple of 4.
 
 Example :
 
+input : 'AbhayKan'
+output : 'naKyahbA'
 input : 'Abhay'
-output : 'yahbA'
-input : 'Abh'
-output : 'Abh'
+output : 'Abhay'
 """
 
-# def reverse_string_if_multiple_of_4
+def reverse_string_if_multiple_of_4(string):
+    if len(string) % 4 == 0:
+        return string[::-1]
+    else:
+        return string
+
+    
+"""
+Write a Python program to sort a string lexicographically.
+"""
+
+def sort_string_lexicographically(string):
+    return str(sorted(string))
+
+print(sort_string_lexicographically('abhay'))
 
