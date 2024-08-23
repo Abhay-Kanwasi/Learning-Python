@@ -337,5 +337,45 @@ Write a Python program to sort a string lexicographically.
 def sort_string_lexicographically(string):
     return str(sorted(string))
 
-print(sort_string_lexicographically('abhay'))
+
+"""
+Write a Python program to remove a newline in Python.
+"""
+
+# Approch 1
+
+def remove_a_newline(string):
+    return ''.join(string.split())
+
+# Approch 2
+def remove_a_newline2(string):
+    return string.replace('\n','')
+
+
+"""
+Write a Python program to check whether a string starts with specified characters.
+"""
+
+# Approch 1
+def check_string_starts_with(string, characters):
+    return string.startswith(characters)
+    
+
+# Approch 2
+def str_start_with_mul_char(characters, string):
+    if characters in string:
+        return True
+    False    
+    
+
+"""
+Write a Python program to print the following numbers up to 2 decimal places.
+"""
+
+def following_numbers_upto(number):
+    ...
+
+num = '5.555'
+print("Formatted Number: "+"{:.2f}".format(num))
+
 
