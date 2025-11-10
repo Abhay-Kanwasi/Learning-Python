@@ -1,4 +1,3 @@
-# Binary serach 
 def binary_search(arr, search):
     sorted_array = sorted(arr)
     lower = 0
@@ -13,7 +12,9 @@ def binary_search(arr, search):
                 lower = mid
             else:
                 upper = mid
-        
+    return None
+
+
 array = [3,4,2,1,5]
 search = int(input("Enter the number you are searching for : "))
 print(f'Value found at {binary_search(array,search)}.')
