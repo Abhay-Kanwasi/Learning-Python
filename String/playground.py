@@ -2,6 +2,7 @@
 input : 'aabbbccaa'
 output : 'a2b3c2a2'
 """
+from sqlalchemy import false
 
 # Pseudo Code
 # Step 1: Iterate over input
@@ -134,7 +135,27 @@ def string_extension(string_):
     else:
         return string_
 
-print(string_extension('abc'))
-print(string_extension('string'))
-print(string_extension('ab'))
+# print(string_extension('abc'))
+# print(string_extension('string'))
+# print(string_extension('ab'))
 
+"""
+Given an integer array nums, return true if any value appears more than once in the array, otherwise return false.
+
+Input: nums = [1, 2, 3, 3]
+Output: true
+"""
+
+def contains_duplicate_approach1(nums):
+    if len(nums) == len(set(nums)):
+        return False
+    else:
+
+        return True
+
+def contains_duplicate_approach2(nums):
+    nums.sort()
+    for index in range(1, len(nums)):
+        if nums[index] == nums[index - 1]:
+            return True
+    return False
