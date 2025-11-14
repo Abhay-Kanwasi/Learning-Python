@@ -140,10 +140,9 @@ def string_extension(string_):
 # print(string_extension('ab'))
 
 """
-Given an integer array nums, return true if any value appears more than once in the array, otherwise return false.
+Contains Duplicate
 
-Input: nums = [1, 2, 3, 3]
-Output: true
+Given an integer array nums, return true if any value appears more than once in the array, otherwise return false.
 """
 
 def contains_duplicate_approach1(nums):
@@ -159,3 +158,31 @@ def contains_duplicate_approach2(nums):
         if nums[index] == nums[index - 1]:
             return True
     return False
+
+"""
+Valid Anagram
+
+Given two strings string1 and string2, return true if the two strings are anagrams of each other, otherwise return false.
+An anagram is a string that contains the exact same characters as another string, but the order of the characters can be different.
+"""
+
+def is_anagram_approach1(string1, string2):
+    if len(string1) != len(string2):
+        return False
+    return sorted(string1) == sorted(string2)
+
+def is_anagram_approach2(string1, string2):
+    if len(string1) != len(string2):
+        return False
+    list1 = []
+    list2 = []
+    for index in range(len(string1)):
+        list1.append(ord(string1[index]))
+        list2.append(ord(string2[index]))
+    list1.sort()
+    list2.sort()
+    return list1 == list2
+
+
+if __name__ == "__main__":
+    print(is_anagram_approach2("jar", "jam"))
