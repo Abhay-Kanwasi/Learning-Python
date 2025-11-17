@@ -2,7 +2,6 @@
 input : 'aabbbccaa'
 output : 'a2b3c2a2'
 """
-from sqlalchemy import false
 
 # Pseudo Code
 # Step 1: Iterate over input
@@ -57,7 +56,7 @@ def string_manipulation(string):
     if len(string) < 2:
         # string = 'w'
         # empty string
-        return f'empty string'
+        return 'empty string'
     else:
         # string = 'w3resource'
         # w3ce
