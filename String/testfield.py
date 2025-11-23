@@ -1,5 +1,12 @@
 import pytest
-from .playground import contains_duplicate_approach1, contains_duplicate_approach2, is_anagram_approach1, is_anagram_approach2
+from .playground import contains_duplicate_approach1, contains_duplicate_approach2, is_anagram_approach1, is_anagram_approach2, character_frequency_approach1, character_frequency_approach2
+
+@pytest.mark.parametrize("string, expected", [
+    ("abhay", {'a' : 2, 'b' : 1, 'h' : 1, 'y' : 1})
+])
+def test_character_frequency(string, expected):
+    assert character_frequency_approach1(string) == expected
+    assert character_frequency_approach2(string) == expected
 
 @pytest.mark.parametrize("nums, expected", [
     ([1, 2, 3, 3], True),

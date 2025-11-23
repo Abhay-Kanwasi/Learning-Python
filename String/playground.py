@@ -75,6 +75,33 @@ if __name__ == '__main__':
     string = 'w'
     # print(string_manipulation(string))
 
+if __name__ == '__main__':
+    """
+        'an inferior lawyer with some damm skills' into 'An Inferior Lawyer With Some Damm Skills'
+    """
+    string = 'an inferior lawyer with some damm skills'
+    print(string.title())
+
+if __name__ == '__main__':
+    """
+        'string' into 'gnirts' (reverse)
+    """
+    string = 'abhay'
+    print(string[::-1])
+
+if __name__ == '__main__':
+    """
+        Frequency of each character.
+    """
+    count = 0
+    string = 'abhay'
+    value = 'y'
+    for character in range(len(string)):
+        if string[character] == value:
+            count += 1
+    print(f'For value \'a\' frequency count is {count}')
+
+#=====================================================================================================================================
 """
 Write a Python program to get a string from a given string where all occurrences of its first char have been changed to '$', except the first char itself.
 Sample String : 'restart'
@@ -182,4 +209,24 @@ def is_anagram_approach2(string1, string2):
     list2.sort()
     return list1 == list2
 
+"""
+Character Frequency
 
+Finding the frequency of each character in a string.
+"""
+
+def character_frequency_approach1(string):
+    freq_dict = {}
+    for str in string:
+        if str in freq_dict:
+            freq_dict[str] += 1 # {'a' : 2, 'b' : 1, 'h' : 1}
+        else:
+            freq_dict[str] = 1 # {'a' : 2, 'b' : 1, 'h' : 1, 'y' : 1}
+    print(freq_dict)
+    return freq_dict
+
+def character_frequency_approach2(string):
+    from collections import Counter
+    frequency = Counter(string)
+    print(dict(frequency))
+    return dict(frequency)
