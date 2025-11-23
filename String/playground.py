@@ -183,5 +183,3 @@ def is_anagram_approach2(string1, string2):
     return list1 == list2
 
 
-if __name__ == "__main__":
-    print(is_anagram_approach2("jar", "jam"))
