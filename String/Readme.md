@@ -8,10 +8,10 @@ a = 'asdfsd' # 'that\'s' |
 a = "sdfsdf"
 a = """asdfsdf""" # docstring, information
 
+`Example`
 string = abhay
 01234 (Positive indexing)
 -5-4-3-2-1 (Negative indexing)
-# string[3], string[-2], string[0:4]
 
 - string elements can be accessed using an index value, it starts with 0. Negative indexing is allowed. THe last character is considered to be at index -1.
 - A substring can be sliced out of a string:
