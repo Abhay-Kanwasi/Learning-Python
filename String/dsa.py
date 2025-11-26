@@ -66,3 +66,16 @@ Hard Problems
 - Minimum Insertions for Palindrome
 - Max Non-Overlapping Odd Palindrome Sum
 """
+
+######################
+# Easy Problems
+######################
+
+# Palindrome Check
+# A palindrome is a word, phrase, number, or sequence that reads the same forwards and backwards.
+def is_palindrome(string):
+    string = string.lower()
+    if string == string[::-1]:
+        return True
+    else:
+        return False
