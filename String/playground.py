@@ -9,11 +9,11 @@ output : 'a2b3c2a2'
 # Step 3: If it matches the item then count += 1 if not then item = new item
 # Step 4: Go on until last item
 
-if __name__ == '__main__':
-    string_input = 'aabbbccaa'
+if __name__ == "__main__":
+    string_input = "aabbbccaa"
     prev = string_input[0]
     count = 1
-    result = ''
+    result = ""
     for string in string_input[1:]:
         # print(f'string: {string}')
         if string == prev:
@@ -52,69 +52,71 @@ Sample String : ' w'
 Expected Result : Empty String
 """
 
+
 def string_manipulation(string):
     if len(string) < 2:
         # string = 'w'
         # empty string
-        return 'empty string'
+        return "empty string"
     else:
         # string = 'w3resource'
         # w3ce
 
         # string = 'w3'
         # w3w3
-        return f'{string[:2]}{string[-2:]}'
+        return f"{string[:2]}{string[-2:]}"
 
-if __name__ == '__main__':
-    string = 'w3resource'
+
+if __name__ == "__main__":
+    string = "w3resource"
     # print(string_manipulation(string))
 
-    string = 'w3'
+    string = "w3"
     # print(string_manipulation(string))
 
-    string = 'w'
+    string = "w"
     # print(string_manipulation(string))
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
         'an inferior lawyer with some damm skills' into 'An Inferior Lawyer With Some Damm Skills'
     """
-    string = 'an inferior lawyer with some damm skills'
+    string = "an inferior lawyer with some damm skills"
     print(string.title())
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
         'string' into 'gnirts' (reverse)
     """
-    string = 'abhay'
+    string = "abhay"
     print(string[::-1])
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
         Frequency of each character.
     """
     count = 0
-    string = 'abhay'
-    value = 'y'
+    string = "abhay"
+    value = "y"
     for character in range(len(string)):
         if string[character] == value:
             count += 1
-    print(f'For value \'a\' frequency count is {count}')
+    print(f"For value 'a' frequency count is {count}")
 
-#=====================================================================================================================================
+# =====================================================================================================================================
 """
 Write a Python program to get a string from a given string where all occurrences of its first char have been changed to '$', except the first char itself.
 Sample String : 'restart'
 Expected Result : 'resta$t'
 """
 
-string = 'restart'
-result = ''
+string = "restart"
+result = ""
 first_occurrence = string[0]
 
 for i in range(1, len(string)):
     if first_occurrence == string[i]:
-        result += '$'
+        result += "$"
     else:
         result += string[i]
 
@@ -133,14 +135,18 @@ Expected Result : 'xyc abz'
 
 # It means string1 = 'abc' and string 2 = 'xyz' then output will be 'xyc abz'
 
-input_string1 = 'abc'
-input_string2 = 'xyz'
+input_string1 = "abc"
+input_string2 = "xyz"
 
-output_string = f'{input_string2[:2]}{input_string1[-1]}' + " " + f"{input_string1[:2]}{input_string2[-1]}"
+output_string = (
+    f"{input_string2[:2]}{input_string1[-1]}"
+    + " "
+    + f"{input_string1[:2]}{input_string2[-1]}"
+)
 # print(output_string)
 
-string1 = 'abc'
-string2 = 'xyz'
+string1 = "abc"
+string2 = "xyz"
 # print(string2[0] + string2[1] + string1[2] + " " + string1[0] + string1[1] + string2[2])
 
 
@@ -153,13 +159,15 @@ Sample String : 'string'
 Expected Result : 'stringly'
 """
 
+
 def string_extension(string_):
-    if string_[-3:] == 'ing':
-            return string_ + 'ly'
+    if string_[-3:] == "ing":
+        return string_ + "ly"
     elif len(string_) >= 3:
-        return string_ + 'ing'
+        return string_ + "ing"
     else:
         return string_
+
 
 # print(string_extension('abc'))
 # print(string_extension('string'))
@@ -171,12 +179,13 @@ Contains Duplicate
 Given an integer array nums, return true if any value appears more than once in the array, otherwise return false.
 """
 
+
 def contains_duplicate_approach1(nums):
     if len(nums) == len(set(nums)):
         return False
     else:
-
         return True
+
 
 def contains_duplicate_approach2(nums):
     nums.sort()
@@ -185,6 +194,7 @@ def contains_duplicate_approach2(nums):
             return True
     return False
 
+
 """
 Valid Anagram
 
@@ -192,10 +202,12 @@ Given two strings string1 and string2, return true if the two strings are anagra
 An anagram is a string that contains the exact same characters as another string, but the order of the characters can be different.
 """
 
+
 def is_anagram_approach1(string1, string2):
     if len(string1) != len(string2):
         return False
     return sorted(string1) == sorted(string2)
+
 
 def is_anagram_approach2(string1, string2):
     if len(string1) != len(string2):
@@ -209,24 +221,26 @@ def is_anagram_approach2(string1, string2):
     list2.sort()
     return list1 == list2
 
+
 """
 Character Frequency
 
 Finding the frequency of each character in a string.
 """
 
+
 def character_frequency_approach1(string):
     freq_dict = {}
     for str in string:
         if str in freq_dict:
-            freq_dict[str] += 1 # {'a' : 2, 'b' : 1, 'h' : 1}
+            freq_dict[str] += 1  # {'a' : 2, 'b' : 1, 'h' : 1}
         else:
-            freq_dict[str] = 1 # {'a' : 2, 'b' : 1, 'h' : 1, 'y' : 1}
-    print(freq_dict)
+            freq_dict[str] = 1  # {'a' : 2, 'b' : 1, 'h' : 1, 'y' : 1}
     return freq_dict
+
 
 def character_frequency_approach2(string):
     from collections import Counter
+
     frequency = Counter(string)
-    print(dict(frequency))
     return dict(frequency)

@@ -71,11 +71,54 @@ Hard Problems
 # Easy Problems
 ######################
 
+
 # Palindrome Check
 # A palindrome is a word, phrase, number, or sequence that reads the same forwards and backwards.
-def is_palindrome(string):
+def is_palindrome_approch1(string):
     string = string.lower()
     if string == string[::-1]:
         return True
     else:
         return False
+
+
+def is_palindrome_approch2(string):
+    string = string.lower()
+    start_index = 0
+    last_index = len(string) - 1
+
+    while start_index < last_index:
+        if string[start_index] == string[last_index]:
+            start_index += 1
+            last_index -= 1
+        else:
+            return False
+    return True
+
+
+def is_palindrome_approch3(string):
+    string = string.lower()
+    if len(string) % 2 == 0:
+        middle_index = False
+    else:
+        middle_index = len(string) // 2
+    for _ in range(len(string)):
+        if middle_index:
+            left = middle_index - 1
+            right = middle_index + 1
+            if string[left] == string[right]:
+                left -= 1
+                right += 1
+            else:
+                return False
+        else:
+            left = middle_index
+            right = middle_index + 1
+            if string[left] == string[right]:
+                left -= 1
+                right += 1
+            else:
+                return False
+    return True
+
+# Reverse a String
