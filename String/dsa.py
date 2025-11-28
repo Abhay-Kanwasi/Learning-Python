@@ -121,4 +121,73 @@ def is_palindrome_approch3(string):
                 return False
     return True
 
+
+def is_palindrome_approch4(string):
+    string = string.lower()
+    middle_index = len(string) // 2
+
+    for index in range(middle_index):
+        left = string[index]
+        right = string[len(string) - 1 - index]
+
+        if left != right:
+            return False
+    return True
+
+
 # Reverse a String
+
+
+def reverse_string_approch1(string):
+    return string[::-1]
+
+
+def reverse_string_approch2(string):
+    reverse_string = ""
+    for index in range(len(string) - 1, -1, -1):
+        reverse_string += string[index]
+    return reverse_string
+
+
+def reverse_string_approch3(string):
+    reverse_string = ""
+    for index in range(len(string)):
+        reverse_string += string[len(string) - index - 1]
+    return reverse_string
+
+
+# Check for Rotation
+"""
+Given two strings s1 and s2 of equal length, determine whether s2 is a rotation of s1.
+A string is said to be a rotation of another if it can be obtained by shifting some leading characters of the original string to its end without changing the order of characters.
+
+Example : Input: s1 = "abcd", s2 = "cdab"
+Output: true
+Explanation: After 2 right rotations, s1 will become equal to s2.
+
+Input: s1 = "aab", s2 = "aba"
+Output: true
+Explanation: After 1 left rotation, s1 will become equal to s2.
+
+Input: s1 = "abcd", s2 = "acbd"
+Output: false
+Explanation: Strings are not rotations of each other.
+"""
+
+def check_rotation_approch1(string1, string2):
+   
+    for index in range(len(string1)):
+        if string1[index] and string1[index + 1] in string2:
+            index += 1
+        else:
+            return False
+    return True
+    
+## 
+# abcd
+# bcda
+# cdab
+# dabc     
+  
+# abcd  , bacd
+    

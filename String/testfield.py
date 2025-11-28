@@ -1,6 +1,15 @@
 import pytest
 
-from .dsa import is_palindrome_approch1, is_palindrome_approch2, is_palindrome_approch3
+from .dsa import (
+    check_rotation_approch1,
+    is_palindrome_approch1,
+    is_palindrome_approch2,
+    is_palindrome_approch3,
+    is_palindrome_approch4,
+    reverse_string_approch1,
+    reverse_string_approch2,
+    reverse_string_approch3,
+)
 from .playground import (
     character_frequency_approach1,
     character_frequency_approach2,
@@ -66,4 +75,25 @@ def test_is_palindrome(string, expected):
     assert is_palindrome_approch1(string) == expected
     assert is_palindrome_approch2(string) == expected
     assert is_palindrome_approch3(string) == expected
+    assert is_palindrome_approch4(string) == expected
     print("Test Passed")
+
+
+@pytest.mark.parametrize(
+    "string, expected",
+    [("abcd", "dcba"), ("Abcd", "dcbA")],
+)
+def test_reverse_string(string, expected):
+    print("Testing reverse of string")
+    assert reverse_string_approch1(string) == expected
+    assert reverse_string_approch2(string) == expected
+    assert reverse_string_approch3(string) == expected
+    print("Test passed !")
+
+
+@pytest.mark.parametrize(
+    "string1, string2, expected", [("aab", "aba", True), ("abcd", "acbd", False)]
+)
+def test_check_rotation(string1, string2, expected):
+    print("Testing check rotation")
+    assert check_rotation_approch1(string1, string2) == expected
