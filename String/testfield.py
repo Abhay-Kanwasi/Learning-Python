@@ -2,6 +2,7 @@ import pytest
 
 from .dsa import (
     check_rotation_approch1,
+    check_rotation_approch2,
     is_palindrome_approch1,
     is_palindrome_approch2,
     is_palindrome_approch3,
@@ -92,8 +93,11 @@ def test_reverse_string(string, expected):
 
 
 @pytest.mark.parametrize(
-    "string1, string2, expected", [("aab", "aba", True), ("abcd", "acbd", False)]
+    "string1, string2, expected",
+    [("aab", "aba", True), ("abcd", "acbd", False), ("abcd", "cdab", True)],
 )
 def test_check_rotation(string1, string2, expected):
     print("Testing check rotation")
     assert check_rotation_approch1(string1, string2) == expected
+    assert check_rotation_approch2(string1, string2) == expected
+    print("Test passed !")
