@@ -174,20 +174,48 @@ Output: false
 Explanation: Strings are not rotations of each other.
 """
 
+
 def check_rotation_approch1(string1, string2):
-   
+    """
+    For this approch calculate a formula for left rotation and right rotation then store one rotation at a time and then perform another rotation on updated string.
+    Left rotation = last value of current string + all values except last of current string
+    Right rotation = all values except last of current string + last value of current string
+    """
+    if len(string1) != len(string2):
+        print("Both strings should be of same length")
+        return False
+    left_check_string = string1
+    right_check_string = string1
+    for index in range(len(string1)):
+        right_result = right_check_string[1:] + right_check_string[0]
+        right_check_string = right_result
+        if right_check_string == string2:
+            print(f"After {index + 1} right rotation {string1} will become {string2}")
+            return True
+        left_result = left_check_string[-1] + left_check_string[:-1]
+        left_check_string = left_result
+        if left_check_string == string2:
+            print(f"After {index + 1} left rotation {string1} will become {string2}")
+            return True
+    print("Strings are not rotations of each other.")
+    return False
+
+
+def check_rotation_approch2(string1, string2):
+    """
+    If s2 is a rotation of s1, then when you concatenate s1 with itself, every possible rotation of s1 will appear as a substring inside that doubled string.
+    we will not be trying to update string1 step by step. Instead, we’re building a superstring that already contains all possible rotations of string1 as contiguous substrings.
+    """
+    if len(string1) != len(string2):
+        print("Both strings should be of same length")
+        return False
+    return True if string2 in (string1 + string1) else False
+
+
+def check_rotation_approch3(string1, string2):
     for index in range(len(string1)):
         if string1[index] and string1[index + 1] in string2:
             index += 1
         else:
             return False
     return True
-    
-## 
-# abcd
-# bcda
-# cdab
-# dabc     
-  
-# abcd  , bacd
-    
