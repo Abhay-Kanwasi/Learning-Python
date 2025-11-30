@@ -180,6 +180,7 @@ def check_rotation_approch1(string1, string2):
     For this approch calculate a formula for left rotation and right rotation then store one rotation at a time and then perform another rotation on updated string.
     Left rotation = last value of current string + all values except last of current string
     Right rotation = all values except last of current string + last value of current string
+    Time Complexity: Left-Right rotation[O(n)] * Comparison with string2[O(n)] = O(n^2)
     """
     if len(string1) != len(string2):
         print("Both strings should be of same length")
@@ -201,10 +202,11 @@ def check_rotation_approch1(string1, string2):
     return False
 
 
-def check_rotation_approch2(string1, string2):
+def check_rotation_approach2(string1, string2):
     """
     If s2 is a rotation of s1, then when you concatenate s1 with itself, every possible rotation of s1 will appear as a substring inside that doubled string.
-    we will not be trying to update string1 step by step. Instead, we’re building a superstring that already contains all possible rotations of string1 as contiguous substrings.
+    we will not bei trying to update string1 step by step. Instead, we’re building a superstring that already contains all possible rotations of string1 as contiguous substrings.
+    Time Complexity: linear time complexity relative to the length of the input strings
     """
     if len(string1) != len(string2):
         print("Both strings should be of same length")
@@ -212,10 +214,16 @@ def check_rotation_approch2(string1, string2):
     return True if string2 in (string1 + string1) else False
 
 
-def check_rotation_approch3(string1, string2):
-    for index in range(len(string1)):
-        if string1[index] and string1[index + 1] in string2:
-            index += 1
-        else:
-            return False
-    return True
+def check_rotation_using_kmp(string_one, string_two):
+    """
+    Check if string_two is a rotation of string_one using KMP.
+    Example: 'abcde' → rotations: 'cdeab', 'deabc', etc.
+    """
+    from .algorithms import kmp_search
+
+    if len(string_one) != len(string_two):
+        print("Both strings must be of the same length")
+        return False
+
+    doubled_string = string_one + string_one
+    return kmp_search(doubled_string, string_two)
