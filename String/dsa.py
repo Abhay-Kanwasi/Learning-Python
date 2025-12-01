@@ -10,13 +10,13 @@ Easy Problems
 - Reverse a String
 - Reverse Words
 - Check for Rotation
-- First Non Repeating
+- First Non-Repeating
 - Roman to Integer
 - Implement Atoi
 - Encrypt the String – II
 - Equal Point in Brackets
 - Anagram Checking
-- Panagram Checking
+- P anagram Checking
 - Validate IP Address
 - Add Binary Strings
 
@@ -74,7 +74,7 @@ Hard Problems
 
 # Palindrome Check
 # A palindrome is a word, phrase, number, or sequence that reads the same forwards and backwards.
-def is_palindrome_approch1(string):
+def is_palindrome_approach1(string):
     string = string.lower()
     if string == string[::-1]:
         return True
@@ -82,7 +82,7 @@ def is_palindrome_approch1(string):
         return False
 
 
-def is_palindrome_approch2(string):
+def is_palindrome_approach2(string):
     string = string.lower()
     start_index = 0
     last_index = len(string) - 1
@@ -96,7 +96,7 @@ def is_palindrome_approch2(string):
     return True
 
 
-def is_palindrome_approch3(string):
+def is_palindrome_approach3(string):
     string = string.lower()
     if len(string) % 2 == 0:
         middle_index = False
@@ -122,7 +122,7 @@ def is_palindrome_approch3(string):
     return True
 
 
-def is_palindrome_approch4(string):
+def is_palindrome_approach4(string):
     string = string.lower()
     middle_index = len(string) // 2
 
@@ -138,18 +138,18 @@ def is_palindrome_approch4(string):
 # Reverse a String
 
 
-def reverse_string_approch1(string):
+def reverse_string_approach1(string):
     return string[::-1]
 
 
-def reverse_string_approch2(string):
+def reverse_string_approach2(string):
     reverse_string = ""
     for index in range(len(string) - 1, -1, -1):
         reverse_string += string[index]
     return reverse_string
 
 
-def reverse_string_approch3(string):
+def reverse_string_approach3(string):
     reverse_string = ""
     for index in range(len(string)):
         reverse_string += string[len(string) - index - 1]
@@ -175,9 +175,9 @@ Explanation: Strings are not rotations of each other.
 """
 
 
-def check_rotation_approch1(string1, string2):
+def check_rotation_approach1(string1, string2):
     """
-    For this approch calculate a formula for left rotation and right rotation then store one rotation at a time and then perform another rotation on updated string.
+    For this approach calculate a formula for left rotation and right rotation then store one rotation at a time and then perform another rotation on updated string.
     Left rotation = last value of current string + all values except last of current string
     Right rotation = all values except last of current string + last value of current string
     Time Complexity: Left-Right rotation[O(n)] * Comparison with string2[O(n)] = O(n^2)
