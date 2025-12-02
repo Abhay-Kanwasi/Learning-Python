@@ -227,3 +227,21 @@ def check_rotation_using_kmp(string_one, string_two):
 
     doubled_string = string_one + string_one
     return kmp_search(doubled_string, string_two)
+
+
+# First Non-Repeating
+"""
+Given a string s of lowercase English letters, the task is to find the first non-repeating character. If there is no such character, return '$'.
+
+Input: s = "geeforgs"
+Output: 'f'
+Explanation: 'f' is the first character in the string which does not repeat.
+
+Input: s = "racecar"
+Output: 'e'
+Explanation: 'e' is the only character in the string which does not repeat.
+
+Input: "aabbccc"
+Output: '$'
+Explanation: All the characters in the given string are repeating.
+"""
