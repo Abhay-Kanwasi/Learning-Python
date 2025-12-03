@@ -245,3 +245,20 @@ Input: "aabbccc"
 Output: '$'
 Explanation: All the characters in the given string are repeating.
 """
+
+
+def first_non_repeating_character_approach1(string):
+    # Dictionary to store frequency of each character
+    character_frequency = {}
+
+    # First loop to count frequencies
+    for character in string:
+        character_frequency[character] = character_frequency.get(character, 0) + 1
+
+    # Second loop to find first character with frequency 1
+    for character in string:
+        if character_frequency[character] == 1:
+            return character
+
+    # If no non-repeating character found
+    return '$'
