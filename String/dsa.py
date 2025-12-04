@@ -233,7 +233,7 @@ def check_rotation_using_kmp(string_one, string_two):
 """
 Given a string s of lowercase English letters, the task is to find the first non-repeating character. If there is no such character, return '$'.
 
-Input: s = "geeforgs"
+Input: s = "geefrrgss"
 Output: 'f'
 Explanation: 'f' is the first character in the string which does not repeat.
 
@@ -248,17 +248,33 @@ Explanation: All the characters in the given string are repeating.
 
 
 def first_non_repeating_character_approach1(string):
-    # Dictionary to store frequency of each character
-    character_frequency = {}
-
-    # First loop to count frequencies
-    for character in string:
-        character_frequency[character] = character_frequency.get(character, 0) + 1
-
-    # Second loop to find first character with frequency 1
-    for character in string:
-        if character_frequency[character] == 1:
-            return character
-
-    # If no non-repeating character found
-    return '$'
+    """
+    First, we check if the string is empty; if it is, return '$'.
+    
+    Then we iterate through each character in the string.
+    For each character, we generate a new string with the first occurrence of that character removed.
+    If the character still exists inside that modified string, it means it appears more than once,
+    so we continue to the next character.
+    
+    If the character does not appear in the modified string, it is unique,
+    and we immediately return that character.
+    
+    If the loop completes and reaches the last index, we assume that no unique character exists
+    and return '$'.
+    
+    Time Complexity: O(n^2)
+    Because:
+    - Outer loop runs O(n) times
+    - Each `string.replace()` creates a new string which costs O(n)
+    - Therefore total complexity = O(n) * O(n) = O(n^2)
+    """
+    if not string:
+        return "$"
+    for index in range(len(string)):
+        if index == len(string) - 1:
+            if string[index] in string.replace(string[index], "", 1):
+                return "$"
+        if string[index] in string.replace(string[index], "", 1):
+            continue
+        if string[index] in string:
+            return string[index]

@@ -1,16 +1,17 @@
 import pytest
 
 from .dsa import (
-    check_rotation_approch1,
-    check_rotation_approch2,
+    check_rotation_approach1,
+    check_rotation_approach2,
     check_rotation_using_kmp,
-    is_palindrome_approch1,
-    is_palindrome_approch2,
-    is_palindrome_approch3,
-    is_palindrome_approch4,
-    reverse_string_approch1,
-    reverse_string_approch2,
-    reverse_string_approch3,
+    first_non_repeating_character_approach1,
+    is_palindrome_approach1,
+    is_palindrome_approach2,
+    is_palindrome_approach3,
+    is_palindrome_approach4,
+    reverse_string_approach1,
+    reverse_string_approach2,
+    reverse_string_approach3,
 )
 from .playground import (
     character_frequency_approach1,
@@ -74,10 +75,10 @@ def test_is_anagram(string1, string2, expected):
 )
 def test_is_palindrome(string, expected):
     print("Testing is palindrome")
-    assert is_palindrome_approch1(string) == expected
-    assert is_palindrome_approch2(string) == expected
-    assert is_palindrome_approch3(string) == expected
-    assert is_palindrome_approch4(string) == expected
+    assert is_palindrome_approach1(string) == expected
+    assert is_palindrome_approach2(string) == expected
+    assert is_palindrome_approach3(string) == expected
+    assert is_palindrome_approach4(string) == expected
     print("Test Passed")
 
 
@@ -87,9 +88,9 @@ def test_is_palindrome(string, expected):
 )
 def test_reverse_string(string, expected):
     print("Testing reverse of string")
-    assert reverse_string_approch1(string) == expected
-    assert reverse_string_approch2(string) == expected
-    assert reverse_string_approch3(string) == expected
+    assert reverse_string_approach1(string) == expected
+    assert reverse_string_approach2(string) == expected
+    assert reverse_string_approach3(string) == expected
     print("Test passed !")
 
 
@@ -104,7 +105,29 @@ def test_reverse_string(string, expected):
 )
 def test_check_rotation(string1, string2, expected):
     print("Testing check rotation")
-    assert check_rotation_approch1(string1, string2) == expected
-    assert check_rotation_approch2(string1, string2) == expected
+    assert check_rotation_approach1(string1, string2) == expected
+    assert check_rotation_approach2(string1, string2) == expected
     assert check_rotation_using_kmp(string1, string2) == expected
+    print("Test passed !")
+
+
+@pytest.mark.parametrize(
+    "string, expected",
+    [
+        ("abcd", "a"),
+        ("aabcc", "b"),
+        ("aabcccccdd", "b"),
+        ("aabbccc", "$"),
+        ("banana", "b"),
+        ("google", "l"),
+        ("aabbc", "c"),
+        ("abcabd", "c"),
+        ("", "$"),
+        ("aabcdd", "b"),
+        ("abcabda", "c"),
+    ],
+)
+def test_first_non_repeating_character(string, expected):
+    print("Testing first non repeating character")
+    assert first_non_repeating_character_approach1(string) == expected
     print("Test passed !")
