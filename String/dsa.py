@@ -136,8 +136,6 @@ def is_palindrome_approach4(string):
 
 
 # Reverse a String
-
-
 def reverse_string_approach1(string):
     return string[::-1]
 
@@ -250,18 +248,18 @@ Explanation: All the characters in the given string are repeating.
 def first_non_repeating_character_approach1(string):
     """
     First, we check if the string is empty; if it is, return '$'.
-    
+
     Then we iterate through each character in the string.
     For each character, we generate a new string with the first occurrence of that character removed.
     If the character still exists inside that modified string, it means it appears more than once,
     so we continue to the next character.
-    
+
     If the character does not appear in the modified string, it is unique,
     and we immediately return that character.
-    
+
     If the loop completes and reaches the last index, we assume that no unique character exists
     and return '$'.
-    
+
     Time Complexity: O(n^2)
     Because:
     - Outer loop runs O(n) times
@@ -278,3 +276,24 @@ def first_non_repeating_character_approach1(string):
             continue
         if string[index] in string:
             return string[index]
+    return None
+
+
+# Roman to Integer
+"""
+Given a string s representing a Roman numeral, find it's corresponding integer value.
+Roman numerals are formed using the following symbols: I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, and M = 1000.
+Numbers are typically formed by combining these symbols from left to right, adding or subtracting their values based on specific rules.
+
+Input: s = "IX"
+Output: 9
+Explanation: IX is a Roman symbol which represents 10 - 1 = 9
+
+Input: s = "XL"
+Output: 40
+Explanation: XL is a Roman symbol which represents 50 - 10 = 40
+
+Input: s = "MCMIV"
+Output: 1904
+Explanation: M is 1000, CM is 1000 - 100 = 900, and IV is 4. So we have total as 1000 + 900 + 4 = 1904
+"""
