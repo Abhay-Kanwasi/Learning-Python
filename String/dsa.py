@@ -279,6 +279,25 @@ def first_non_repeating_character_approach1(string):
     return None
 
 
+def first_non_repeating_character_approach2(string):
+    if not string:
+        return "$"
+    char_occurrence = {}
+    for char in string:
+        char_count = 0
+        print(f'char {char}, char count {char_count}, char occurrence {char_occurrence}')
+        if char in char_occurrence.keys():
+            char_count = char_count + 1
+            char_occurrence[char] += char_count
+        else:
+            char_occurrence[char] = char_count + 1
+        if char_occurrence[char] == 1:
+            print(string, "char_occurrence[char]", char)
+            return char
+        print(f'char {char}, char count {char_count}, char occurrence {char_occurrence}')
+
+    return "$"
+
 # Roman to Integer
 """
 Given a string s representing a Roman numeral, find it's corresponding integer value.

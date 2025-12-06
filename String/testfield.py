@@ -5,6 +5,7 @@ from .dsa import (
     check_rotation_approach2,
     check_rotation_using_kmp,
     first_non_repeating_character_approach1,
+    first_non_repeating_character_approach2,
     is_palindrome_approach1,
     is_palindrome_approach2,
     is_palindrome_approach3,
@@ -130,4 +131,5 @@ def test_check_rotation(string1, string2, expected):
 def test_first_non_repeating_character(string, expected):
     print("Testing first non repeating character")
     assert first_non_repeating_character_approach1(string) == expected
+    assert first_non_repeating_character_approach2(string) == expected
     print("Test passed !")
