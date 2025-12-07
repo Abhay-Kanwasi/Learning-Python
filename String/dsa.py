@@ -284,19 +284,15 @@ def first_non_repeating_character_approach2(string):
         return "$"
     char_occurrence = {}
     for char in string:
-        char_count = 0
-        print(f'char {char}, char count {char_count}, char occurrence {char_occurrence}')
-        if char in char_occurrence.keys():
-            char_count = char_count + 1
-            char_occurrence[char] += char_count
+        if char in char_occurrence:
+            char_occurrence[char] += 1
         else:
-            char_occurrence[char] = char_count + 1
+            char_occurrence[char] = 1
+    for char in string:
         if char_occurrence[char] == 1:
-            print(string, "char_occurrence[char]", char)
             return char
-        print(f'char {char}, char count {char_count}, char occurrence {char_occurrence}')
-
     return "$"
+    
 
 # Roman to Integer
 """
