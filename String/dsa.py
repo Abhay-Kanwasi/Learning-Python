@@ -71,9 +71,10 @@ Hard Problems
 # Easy Problems
 ######################
 
-
 # Palindrome Check
 # A palindrome is a word, phrase, number, or sequence that reads the same forwards and backwards.
+
+
 def is_palindrome_approach1(string):
     string = string.lower()
     if string == string[::-1]:
@@ -292,7 +293,7 @@ def first_non_repeating_character_approach2(string):
         if char_occurrence[char] == 1:
             return char
     return "$"
-    
+
 
 # Roman to Integer
 """
@@ -312,3 +313,60 @@ Input: s = "MCMIV"
 Output: 1904
 Explanation: M is 1000, CM is 1000 - 100 = 900, and IV is 4. So we have total as 1000 + 900 + 4 = 1904
 """
+
+
+def roman_to_integer(roman):
+    if roman == "I":
+        return 1
+    elif roman == "V":
+        return 5
+    elif roman == "X":
+        return 10
+    elif roman == "L":
+        return 50
+    elif roman == "C":
+        return 100
+    elif roman == "D":
+        return 500
+    elif roman == "M":
+        return 1000
+    else:
+        roman_character_values = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000,
+        }
+        reverse_string = roman[::-1]
+        total = 0
+        prev_val = 0
+        for char in reverse_string:
+            value = roman_character_values[char]
+            if value < prev_val:
+                total -= value
+            else:
+                total += value
+            prev_val = value
+        return total
+    
+
+# lst = XI[]
+# M CM IV
+# vi mc m
+#
+# lst[1] > lst[0]
+# I > X
+# i iteration : i !> v  total = v-i = 4
+# ii iteration : c !> m = m-c = 900 tot 4+900 = 904
+# iii iteration : 1000 total = 1000+904 = 1904
+
+#
+#
+#
+#
+#
+#
+#
