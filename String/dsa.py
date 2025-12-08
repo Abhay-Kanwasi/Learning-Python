@@ -72,8 +72,9 @@ Hard Problems
 ######################
 
 # Palindrome Check
-# A palindrome is a word, phrase, number, or sequence that reads the same forwards and backwards.
-
+"""
+A palindrome is a word, phrase, number, or sequence that reads the same forwards and backwards.
+"""
 
 def is_palindrome_approach1(string):
     string = string.lower()
@@ -81,7 +82,6 @@ def is_palindrome_approach1(string):
         return True
     else:
         return False
-
 
 def is_palindrome_approach2(string):
     string = string.lower()
@@ -95,7 +95,6 @@ def is_palindrome_approach2(string):
         else:
             return False
     return True
-
 
 def is_palindrome_approach3(string):
     string = string.lower()
@@ -122,7 +121,6 @@ def is_palindrome_approach3(string):
                 return False
     return True
 
-
 def is_palindrome_approach4(string):
     string = string.lower()
     middle_index = len(string) // 2
@@ -137,9 +135,10 @@ def is_palindrome_approach4(string):
 
 
 # Reverse a String
+"""Reverse a string"""
+
 def reverse_string_approach1(string):
     return string[::-1]
-
 
 def reverse_string_approach2(string):
     reverse_string = ""
@@ -173,7 +172,6 @@ Output: false
 Explanation: Strings are not rotations of each other.
 """
 
-
 def check_rotation_approach1(string1, string2):
     """
     For this approach calculate a formula for left rotation and right rotation then store one rotation at a time and then perform another rotation on updated string.
@@ -200,7 +198,6 @@ def check_rotation_approach1(string1, string2):
     print("Strings are not rotations of each other.")
     return False
 
-
 def check_rotation_approach2(string1, string2):
     """
     If s2 is a rotation of s1, then when you concatenate s1 with itself, every possible rotation of s1 will appear as a substring inside that doubled string.
@@ -211,7 +208,6 @@ def check_rotation_approach2(string1, string2):
         print("Both strings should be of same length")
         return False
     return True if string2 in (string1 + string1) else False
-
 
 def check_rotation_using_kmp(string_one, string_two):
     """
@@ -244,7 +240,6 @@ Input: "aabbccc"
 Output: '$'
 Explanation: All the characters in the given string are repeating.
 """
-
 
 def first_non_repeating_character_approach1(string):
     """
@@ -279,7 +274,6 @@ def first_non_repeating_character_approach1(string):
             return string[index]
     return None
 
-
 def first_non_repeating_character_approach2(string):
     if not string:
         return "$"
@@ -313,7 +307,6 @@ Input: s = "MCMIV"
 Output: 1904
 Explanation: M is 1000, CM is 1000 - 100 = 900, and IV is 4. So we have total as 1000 + 900 + 4 = 1904
 """
-
 
 def roman_to_integer(roman):
     if roman == "I":
@@ -351,22 +344,14 @@ def roman_to_integer(roman):
                 total += value
             prev_val = value
         return total
-    
 
-# lst = XI[]
-# M CM IV
-# vi mc m
-#
-# lst[1] > lst[0]
-# I > X
-# i iteration : i !> v  total = v-i = 4
-# ii iteration : c !> m = m-c = 900 tot 4+900 = 904
-# iii iteration : 1000 total = 1000+904 = 1904
 
-#
-#
-#
-#
-#
-#
-#
+# Implement Atoi
+"""
+Given a string s, convert it into integer format without utilizing any built-in functions. Refer the below steps to know about atoi() function.
+
+Skip any leading whitespaces.
+Check for a sign (‘+’ or ‘-‘), default to positive if no sign is present.
+Read the integer by ignoring leading zeros until a non-digit character is encountered or end of the string is reached. If no digits are present, return 0.
+If the integer is greater than 231 – 1, then return 231 – 1 and if the integer is smaller than -231, then return -231.
+"""
