@@ -354,4 +354,24 @@ Skip any leading whitespaces.
 Check for a sign (‘+’ or ‘-‘), default to positive if no sign is present.
 Read the integer by ignoring leading zeros until a non-digit character is encountered or end of the string is reached. If no digits are present, return 0.
 If the integer is greater than 231 – 1, then return 231 – 1 and if the integer is smaller than -231, then return -231.
+
+Input: s = "-123"
+Output: -123
+
+Input: s = "  -"
+Output: 0
+
+Input: s = " 1231231231311133"
+Output: 2147483647
+
+Input: s = "  -0012gfg4"
+Output: -12
 """
+
+def atoi(string):
+    new_string = string.trim()
+    output = 0
+
+    for substring in new_string:
+        
+            
