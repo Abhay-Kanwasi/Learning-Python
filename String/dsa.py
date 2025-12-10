@@ -76,12 +76,14 @@ Hard Problems
 A palindrome is a word, phrase, number, or sequence that reads the same forwards and backwards.
 """
 
+
 def is_palindrome_approach1(string):
     string = string.lower()
     if string == string[::-1]:
         return True
     else:
         return False
+
 
 def is_palindrome_approach2(string):
     string = string.lower()
@@ -95,6 +97,7 @@ def is_palindrome_approach2(string):
         else:
             return False
     return True
+
 
 def is_palindrome_approach3(string):
     string = string.lower()
@@ -121,6 +124,7 @@ def is_palindrome_approach3(string):
                 return False
     return True
 
+
 def is_palindrome_approach4(string):
     string = string.lower()
     middle_index = len(string) // 2
@@ -137,8 +141,10 @@ def is_palindrome_approach4(string):
 # Reverse a String
 """Reverse a string"""
 
+
 def reverse_string_approach1(string):
     return string[::-1]
+
 
 def reverse_string_approach2(string):
     reverse_string = ""
@@ -172,6 +178,7 @@ Output: false
 Explanation: Strings are not rotations of each other.
 """
 
+
 def check_rotation_approach1(string1, string2):
     """
     For this approach calculate a formula for left rotation and right rotation then store one rotation at a time and then perform another rotation on updated string.
@@ -198,6 +205,7 @@ def check_rotation_approach1(string1, string2):
     print("Strings are not rotations of each other.")
     return False
 
+
 def check_rotation_approach2(string1, string2):
     """
     If s2 is a rotation of s1, then when you concatenate s1 with itself, every possible rotation of s1 will appear as a substring inside that doubled string.
@@ -208,6 +216,7 @@ def check_rotation_approach2(string1, string2):
         print("Both strings should be of same length")
         return False
     return True if string2 in (string1 + string1) else False
+
 
 def check_rotation_using_kmp(string_one, string_two):
     """
@@ -240,6 +249,7 @@ Input: "aabbccc"
 Output: '$'
 Explanation: All the characters in the given string are repeating.
 """
+
 
 def first_non_repeating_character_approach1(string):
     """
@@ -274,6 +284,7 @@ def first_non_repeating_character_approach1(string):
             return string[index]
     return None
 
+
 def first_non_repeating_character_approach2(string):
     if not string:
         return "$"
@@ -307,6 +318,7 @@ Input: s = "MCMIV"
 Output: 1904
 Explanation: M is 1000, CM is 1000 - 100 = 900, and IV is 4. So we have total as 1000 + 900 + 4 = 1904
 """
+
 
 def roman_to_integer(roman):
     if roman == "I":
@@ -348,13 +360,20 @@ def roman_to_integer(roman):
 
 # Implement Atoi
 """
-Given a string s, convert it into integer format without utilizing any built-in functions. Refer the below steps to know about atoi() function.
+Given a string s, convert it into an integer (similar to the atoi() function) without using built-in conversion functions.
 
-Skip any leading whitespaces.
-Check for a sign (‘+’ or ‘-‘), default to positive if no sign is present.
-Read the integer by ignoring leading zeros until a non-digit character is encountered or end of the string is reached. If no digits are present, return 0.
-If the integer is greater than 231 – 1, then return 231 – 1 and if the integer is smaller than -231, then return -231.
+Steps:
+1. Skip any leading whitespaces.
+2. Check for a sign (‘+’ or ‘-’). If no sign is present, assume positive.
+3. Read the digits and construct the number until a non-digit character is encountered
+   or the end of the string is reached. Ignore leading zeros.
+4. If no digits are found, return 0.
+5. Clamp the result to the 32-bit signed integer range:
+      Minimum value: -2^31      → -2147483648
+      Maximum value:  2^31 - 1  → 2147483647
+   If the result exceeds the bounds, return the respective limit.
 
+Examples:
 Input: s = "-123"
 Output: -123
 
@@ -366,12 +385,110 @@ Output: 2147483647
 
 Input: s = "  -0012gfg4"
 Output: -12
+
+Input: s = "  00 12gc"
+Output: 0
 """
 
-def atoi(string):
-    new_string = string.trim()
-    output = 0
 
-    for substring in new_string:
+def atoi_approch_1(string):
+    # Condition 1: Skip leading whitespaces
+    index = 0
+    while index < len(string) and string[index] == " ":
+        index += 1
+
+    # Condition 2: Checking the positive and negative sign
+    sign = 1
+    if string[index] == "-":
+        sign = -1
+        index += 1
+    elif string[index] == "+":
+        sign = 1
+        index += 1
+
+    # Condition 3:  Read the digits and construct the number until a non-digit character is encountered or the end of the string is reached. Ignore leading zeros.
+    output = 0
+    number_found = False
+    while index < len(string) and ord("0") <= ord(string[index]) <= ord("9"):
+        """0 ascii value is 48 and 9 ascii value is 57"""
+        number_found = True
+        number = (
+            ord(string[index]) - ord("0")
+        )  # ascii value of string - ascii value of 0 will give us the actual value in integer
+        output = output * 10 + number
+        index += 1
+
+        if output > 2147483647:
+            break
+
+    # Condition 4: If no digits are found, return 0.
+    if not number_found:
+        return 0
+
+    output = output * sign
+
+    # Condition 5: Clamp the result to the 32-bit signed integer range: Minimum value: -2^31      → -2147483648 Maximum value:  2^31 - 1  → 2147483647 If the result exceeds the bounds, return the respective limit.
+    minimum_range = -2147483647
+    maximum_range = 2147483647
+
+    if output < minimum_range:
+        return minimum_range
+    if output > maximum_range:
+        return maximum_range
+
+    return output
+
+
+def atoi_approch_2(string):
+    index = 0
+    sign = 1
+    output = 0
+    number_found = False
+
+    while index < len(string):
+        character = string[index]
+
+        # Skip leading spaces
+        if character == " " and not number_found and output == 0 and sign == 1:
+            index += 1
+            continue
+
+        # Handle sign
+        if (character == "-" or character == "+") and not number_found and output == 0:
+            sign = -1 if character == "-" else 1
+            index += 1
+            continue
+
+        # Handle digit
+        if ord("0") <= ord(character) <= ord("9"):
+            number_found = True
+            number = ord(character) - ord("0")
+            output = output * 10 + number
+
+            # Overflow check
+            if output > 2147483647:
+                break
+
+            index += 1
+            continue
+
+        # Non-digit stop iteration
+        break
+
+    if not number_found:
+        return 0
+
+    output *= sign
+    minimum_range = -2147483647
+    maximum_range = 2147483647
+
+    if output < minimum_range:
+        return minimum_range
+    if output > maximum_range:
+        return maximum_range
         
-            
+    return output
+    
+    
+    
+    

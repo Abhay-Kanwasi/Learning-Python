@@ -1,6 +1,8 @@
 import pytest
 
 from .dsa import (
+    atoi_approch_1,
+    atoi_approch_2,
     check_rotation_approach1,
     check_rotation_approach2,
     check_rotation_using_kmp,
@@ -143,4 +145,21 @@ def test_first_non_repeating_character(string, expected):
 def test_roman_to_integer(string, expected):
     print("Testing roman to integer")
     assert roman_to_integer(string) == expected
+    print("Test passed !")
+
+
+@pytest.mark.parametrize(
+    "string, expected",
+    [
+        ("-123", -123),
+        ("  -", 0),
+        (" 1231231231311133", 2147483647),
+        ("  -0012gfg4", -12),
+        ("  00 12gc", 0),
+    ],
+)
+def test_atoi(string, expected):
+    print("Testing roman to integer")
+    assert atoi_approch_1(string) == expected
+    assert atoi_approch_2(string) == expected
     print("Test passed !")
