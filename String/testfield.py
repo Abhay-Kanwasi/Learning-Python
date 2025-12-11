@@ -6,6 +6,7 @@ from .dsa import (
     check_rotation_approach1,
     check_rotation_approach2,
     check_rotation_using_kmp,
+    encrypt_the_string_approach1,
     first_non_repeating_character_approach1,
     first_non_repeating_character_approach2,
     is_palindrome_approach1,
@@ -162,4 +163,26 @@ def test_atoi(string, expected):
     print("Testing roman to integer")
     assert atoi_approch_1(string) == expected
     assert atoi_approch_2(string) == expected
+    print("Test passed !")
+
+
+@pytest.mark.parametrize(
+    "input_string, encrypted_output",
+    [
+        ("aaaaaaaaaaa", "ba"),
+        ("abc", "1c1b1a"),
+        ("aaa", "3a"),
+        ("aaabb", "2b3a"),
+        ("abcd", "1d1c1b1a"),
+        ("aaadddegggg", "4g1e3d3a"),
+        ("zzzzzz", "6z"),
+        ("aabbcc", "2c2b2a"),
+        ("hellooo", "3o2l1e1h"),
+        ("ppppqqr", "1r2q4p"),
+        ("xyz", "1z1y1x"),
+    ],
+)
+def test_encrypt_the_string(input_string, encrypted_output):
+    print("Testing encrypt the string")
+    assert encrypt_the_string_approach1(input_string) == encrypted_output
     print("Test passed !")

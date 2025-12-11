@@ -486,9 +486,71 @@ def atoi_approch_2(string):
         return minimum_range
     if output > maximum_range:
         return maximum_range
-        
+
     return output
-    
-    
-    
-    
+
+
+# Encrypt the String – II
+"""
+You are given a string s. Every sub-string of identical letters is replaced by a single instance of that letter followed by the hexadecimal representation of the number of occurrences of that letter.
+Then, the string thus obtained is further encrypted by reversing it [ See the sample for more clarity ]. Print the Encrypted String.
+
+Note: All Hexadecimal letters should be converted to Lowercase letters.
+
+Input: s = "aaaaaaaaaaa"
+Output: ba
+
+Input: s = "abc"
+Output: 1c1b1a
+"""
+
+
+def encrypt_the_string_approach1(string):
+    storage = {} 
+    for character in string: 
+        if character in storage:
+            storage[character] += 1
+        else:
+            storage[character] = 1
+    output = "".join(
+        f"{character}{hex(count)[2:]}" for character, count in storage.items()
+    )
+    return output[::-1]
+
+
+if __name__ == "__main__":
+    print(encrypt_the_string_approach1("abca"))
+
+
+
+# Coin Change
+
+# Medium :- Amazon Google Pinterest Bloomberg
+# You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
+
+# Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+
+# You may assume that you have an infinite number of each kind of coin.
+
+# Example 1:
+
+# Input: coins = [1,2,5], amount = 11
+# Output: 3
+# Explanation: 11 = 5 + 5 + 1
+# Example 2:
+
+# Input: coins = [2], amount = 3
+# Output: -1
+
+
+
+
+
+
+
+
+
+
+
+
+
