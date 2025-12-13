@@ -505,9 +505,9 @@ Output: 1c1b1a
 """
 
 
-def encrypt_the_string_approach1(string):
-    storage = {} 
-    for character in string: 
+def encrypt_the_string(string):
+    storage = {}
+    for character in string:
         if character in storage:
             storage[character] += 1
         else:
@@ -518,18 +518,21 @@ def encrypt_the_string_approach1(string):
     return output[::-1]
 
 
-if __name__ == "__main__":
-    print(encrypt_the_string_approach1("abca"))
+# Equal Point in Brackets
+"""
+Given a string of brackets, the task is to find an index k which decides the number of opening brackets is equal to the number of closing brackets. The string must be consists of only opening and closing brackets i.e. '(' and ')'.
 
+An equal point is an index such that the number of opening brackets before it is equal to the number of closing brackets from and after. If multiple such points exist then return the first valid index and if no such index exists then return -1.
 
+Input: str = "(())))("
+Output: 4
 
-
-
-
-
-
-
-
-
-
-
+Input : str = "))"
+Output: 2
+"""
+    
+    
+    
+    
+    
+                                            

@@ -6,7 +6,7 @@ from .dsa import (
     check_rotation_approach1,
     check_rotation_approach2,
     check_rotation_using_kmp,
-    encrypt_the_string_approach1,
+    encrypt_the_string,
     first_non_repeating_character_approach1,
     first_non_repeating_character_approach2,
     is_palindrome_approach1,
@@ -184,5 +184,5 @@ def test_atoi(string, expected):
 )
 def test_encrypt_the_string(input_string, encrypted_output):
     print("Testing encrypt the string")
-    assert encrypt_the_string_approach1(input_string) == encrypted_output
+    assert encrypt_the_string(input_string) == encrypted_output
     print("Test passed !")
