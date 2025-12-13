@@ -7,6 +7,8 @@ from .dsa import (
     check_rotation_approach2,
     check_rotation_using_kmp,
     encrypt_the_string,
+    equal_point_in_brackets_approch1,
+    equal_point_in_brackets_approch2,
     first_non_repeating_character_approach1,
     first_non_repeating_character_approach2,
     is_palindrome_approach1,
@@ -185,4 +187,21 @@ def test_atoi(string, expected):
 def test_encrypt_the_string(input_string, encrypted_output):
     print("Testing encrypt the string")
     assert encrypt_the_string(input_string) == encrypted_output
+    print("Test passed !")
+
+
+@pytest.mark.parametrize(
+    "bracket_pattern, breaking_index",
+    [
+        ("(())))(", 4),
+        ("))", -1),
+        ("))()(()", 4),
+        ("((()))", 3),
+        ("()()", 2),
+    ],
+)
+def test_equal_point_in_brackets(bracket_pattern, breaking_index):
+    print("Testing equal point in brackets")
+    assert equal_point_in_brackets_approch1(bracket_pattern) == breaking_index
+    assert equal_point_in_brackets_approch2(bracket_pattern) == breaking_index
     print("Test passed !")

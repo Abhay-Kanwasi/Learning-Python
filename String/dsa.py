@@ -527,12 +527,45 @@ An equal point is an index such that the number of opening brackets before it is
 Input: str = "(())))("
 Output: 4
 
-Input : str = "))"
-Output: 2
+Input: str = "))"
+Output: -1
 """
-    
-    
-    
-    
-    
-                                            
+
+
+def equal_point_in_brackets_approach1(string):
+    for index in range(0, len(string)):
+        left_bracket_count = 0
+        right_bracket_count = 0
+
+        for l_index in range(index):
+            if string[l_index] == "(":
+                left_bracket_count += 1
+        for r_index in range(index, len(string)):
+            if string[r_index] == ")":
+                right_bracket_count += 1
+        if left_bracket_count == right_bracket_count:
+            return index
+    return -1
+
+
+def equal_point_in_brackets_approach2(string):
+    open_count = 0
+    close_count = 0
+
+    # count total closing brackets
+    for ch in string:
+        if ch == ')':
+            close_count += 1
+
+    # traverse string
+    for index, ch in enumerate(string):
+        if open_count == close_count:
+            return index
+
+        if ch == '(':
+            open_count += 1
+        else:
+            close_count -= 1
+
+    return -1
+
