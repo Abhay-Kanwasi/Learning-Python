@@ -569,3 +569,47 @@ def equal_point_in_brackets_approach2(string):
 
     return -1
 
+
+# Anagram Checking
+"""
+Given two non-empty strings s1 and s2 of lowercase letters, determine if they are anagrams — i.e., if they contain the same characters with the same frequencies.
+
+Input: s1 = “geeks”  s2 = “kseeg”
+Output: true
+
+Input: s1 = "allergy", s2 = "allergyy"
+Output: false
+
+Input: s1 = "listen", s2 = "lists"
+Output: false
+"""
+
+def check_anagram(string1, string2):
+    string1 = string1.lower()
+    string2 = string2.lower()
+
+    if not len(string1) == len(string2):
+        return False
+    else:
+        string1_character_frequency = {}
+        string2_character_frequency = {}
+        count = 0
+        for character in string1:
+            if character in string1_character_frequency:
+                count += 1
+                string1_character_frequency[character] = count
+            else:
+                string1_character_frequency[character] = count
+        count = 0
+        for character in string2:
+            if character in string2_character_frequency:
+                count += 1
+                string2_character_frequency[character] = count
+            else:
+                string2_character_frequency[character] = count
+
+
+if __name__ == "__main__":
+    s1 = "geeks"
+    s2 = "kseeg"
+    print(check_anagram(s1, s2))
