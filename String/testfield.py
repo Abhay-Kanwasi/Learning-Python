@@ -22,6 +22,7 @@ from .dsa import (
     reverse_string_approach2,
     reverse_string_approach3,
     roman_to_integer,
+    validate_ip_address
 )
 from .playground import (
     character_frequency_approach1,
@@ -223,4 +224,18 @@ def test_check_anagram(string1, string2, expected):
     assert check_anagram_approach1(string1, string2) == expected
     assert check_anagram_approach2(string1, string2) == expected
     assert check_anagram_approach3(string1, string2) == expected
+    print("Test passed !")
+
+
+@pytest.mark.parametrize(
+    "ip_address, valid",
+    [
+        ("128.0.0.1", True),
+        ("125.16.600.1", False),
+        ("125.512.100.abc", False)
+    ],
+)
+def test_validate_ip_address(ip_address, valid):
+    print("Testing equal point in brackets")
+    assert validate_ip_address(ip_address) == valid
     print("Test passed !")

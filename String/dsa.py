@@ -16,7 +16,6 @@ Easy Problems
 - Encrypt the String – II
 - Equal Point in Brackets
 - Anagram Checking
-- P anagram Checking
 - Validate IP Address
 - Add Binary Strings
 
@@ -622,5 +621,41 @@ def check_anagram_approach2(string1, string2):
 def check_anagram_approach3(string1, string2):
     return True if sorted(string1) == sorted(string2) else False
 
+
+# Validate IP Address
+"""
+Find whether a given IP address is valid.  An IP address is a unique identifier for devices on a network, enabling internet communication. It has two versions: IPv4 and IPv6. IPv4 addresses use dot-decimal notation, consisting of four numbers (0-255) separated by dots, e.g., 172.16.254.1
+
+Input: s = "128.0.0.1";
+Output: true
+
+Input: s = "125.16.100.1";
+Output: true
+
+Input: s = "125.512.100.1";
+Output: false
+
+Input: s = "125.512.100.abc"
+Output: false
+"""
+
+
+def validate_ip_address(ip_address):
+    substring = ip_address.split('.')
+    if len(substring) != 4:
+        return False
+
+    for part in substring:
+        if len(part) > 1 and part[0] == 0: # IP address with leading 0 is not allowed (127.0.0.0.1 is allowed but 127.001.01.1 is now allowed because of 001)
+            return False
+
+        if part.isdigit():
+            if int(part) > 255:
+                return False
+        else:
+            return False
+    return True
+
+
 if __name__ == "__main__":
-    ...
+    print(validate_ip_address('125.112.100.abc'))
