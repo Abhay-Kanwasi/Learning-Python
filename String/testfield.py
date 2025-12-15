@@ -1,8 +1,8 @@
 import pytest
 
 from .dsa import (
-    atoi_approch_1,
-    atoi_approch_2,
+    atoi_approach_1,
+    atoi_approach_2,
     check_rotation_approach1,
     check_rotation_approach2,
     check_rotation_using_kmp,
@@ -10,6 +10,8 @@ from .dsa import (
     equal_point_in_brackets_approach1,
     equal_point_in_brackets_approach2,
     check_anagram_approach1,
+    check_anagram_approach2,
+    check_anagram_approach3,
     first_non_repeating_character_approach1,
     first_non_repeating_character_approach2,
     is_palindrome_approach1,
@@ -164,8 +166,8 @@ def test_roman_to_integer(string, expected):
 )
 def test_atoi(string, expected):
     print("Testing roman to integer")
-    assert atoi_approch_1(string) == expected
-    assert atoi_approch_2(string) == expected
+    assert atoi_approach_1(string) == expected
+    assert atoi_approach_2(string) == expected
     print("Test passed !")
 
 
@@ -219,4 +221,6 @@ def test_equal_point_in_brackets(bracket_pattern, breaking_index):
 def test_check_anagram(string1, string2, expected):
     print("Testing equal point in brackets")
     assert check_anagram_approach1(string1, string2) == expected
+    assert check_anagram_approach2(string1, string2) == expected
+    assert check_anagram_approach3(string1, string2) == expected
     print("Test passed !")

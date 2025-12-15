@@ -84,7 +84,6 @@ def is_palindrome_approach1(string):
     else:
         return False
 
-
 def is_palindrome_approach2(string):
     string = string.lower()
     start_index = 0
@@ -97,7 +96,6 @@ def is_palindrome_approach2(string):
         else:
             return False
     return True
-
 
 def is_palindrome_approach3(string):
     string = string.lower()
@@ -124,7 +122,6 @@ def is_palindrome_approach3(string):
                 return False
     return True
 
-
 def is_palindrome_approach4(string):
     string = string.lower()
     middle_index = len(string) // 2
@@ -145,13 +142,11 @@ def is_palindrome_approach4(string):
 def reverse_string_approach1(string):
     return string[::-1]
 
-
 def reverse_string_approach2(string):
     reverse_string = ""
     for index in range(len(string) - 1, -1, -1):
         reverse_string += string[index]
     return reverse_string
-
 
 def reverse_string_approach3(string):
     reverse_string = ""
@@ -205,7 +200,6 @@ def check_rotation_approach1(string1, string2):
     print("Strings are not rotations of each other.")
     return False
 
-
 def check_rotation_approach2(string1, string2):
     """
     If s2 is a rotation of s1, then when you concatenate s1 with itself, every possible rotation of s1 will appear as a substring inside that doubled string.
@@ -216,7 +210,6 @@ def check_rotation_approach2(string1, string2):
         print("Both strings should be of same length")
         return False
     return True if string2 in (string1 + string1) else False
-
 
 def check_rotation_using_kmp(string_one, string_two):
     """
@@ -283,7 +276,6 @@ def first_non_repeating_character_approach1(string):
         if string[index] in string:
             return string[index]
     return None
-
 
 def first_non_repeating_character_approach2(string):
     if not string:
@@ -391,7 +383,7 @@ Output: 0
 """
 
 
-def atoi_approch_1(string):
+def atoi_approach_1(string):
     # Condition 1: Skip leading whitespaces
     index = 0
     while index < len(string) and string[index] == " ":
@@ -438,8 +430,7 @@ def atoi_approch_1(string):
 
     return output
 
-
-def atoi_approch_2(string):
+def atoi_approach_2(string):
     index = 0
     sign = 1
     output = 0
@@ -547,7 +538,6 @@ def equal_point_in_brackets_approach1(string):
             return index
     return -1
 
-
 def equal_point_in_brackets_approach2(string):
     open_count = 0
     close_count = 0
@@ -612,6 +602,25 @@ def check_anagram_approach1(string1, string2):
     else:
         return False
 
+def check_anagram_approach2(string1, string2):
+    string1 = string1.lower()
+    string2 = string2.lower()
+
+    if not len(string1) == len(string2):
+        return False
+
+    list_of_string2 = list(string2)
+    for character in string1:
+        if character in list_of_string2:
+            list_of_string2.remove(character)
+        else:
+            return False
+    if len(list_of_string2) == 0:
+        return True
+    return False
+
+def check_anagram_approach3(string1, string2):
+    return True if sorted(string1) == sorted(string2) else False
 
 if __name__ == "__main__":
     ...
