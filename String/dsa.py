@@ -584,7 +584,7 @@ Input: s1 = "listen", s2 = "lists"
 Output: false
 """
 
-def check_anagram(string1, string2):
+def check_anagram_approach1(string1, string2):
     string1 = string1.lower()
     string2 = string2.lower()
 
@@ -593,23 +593,25 @@ def check_anagram(string1, string2):
     else:
         string1_character_frequency = {}
         string2_character_frequency = {}
-        count = 0
         for character in string1:
+            count = 1
             if character in string1_character_frequency:
                 count += 1
                 string1_character_frequency[character] = count
             else:
                 string1_character_frequency[character] = count
-        count = 0
         for character in string2:
+            count = 1
             if character in string2_character_frequency:
                 count += 1
                 string2_character_frequency[character] = count
             else:
                 string2_character_frequency[character] = count
+    if string1_character_frequency == string2_character_frequency:
+        return True
+    else:
+        return False
 
 
 if __name__ == "__main__":
-    s1 = "geeks"
-    s2 = "kseeg"
-    print(check_anagram(s1, s2))
+    ...
