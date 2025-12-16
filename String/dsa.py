@@ -657,5 +657,22 @@ def validate_ip_address(ip_address):
     return True
 
 
+# Add two binary strings
+"""
+Given two binary strings s1 and s2, the task is to return their sum.The input strings may contain leading zeros but the output string should not have any leading zeros.
+
+Input: s1 = "1101", s2 = "111" 
+Output: "10100"
+
+Input: s1 = "00100", s2 = "010" 
+Output: "110"  
+"""
+
+
+def add_two_binary_strings(string1, string2):
+    ...
+
+
+
 if __name__ == "__main__":
-    print(validate_ip_address('125.112.100.abc'))
+    print(add_two_binary_strings('125.112.100.abc'))
