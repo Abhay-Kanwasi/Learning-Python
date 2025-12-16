@@ -22,7 +22,7 @@ from .dsa import (
     reverse_string_approach2,
     reverse_string_approach3,
     roman_to_integer,
-    validate_ip_address
+    validate_ip_address, add_two_binary_strings
 )
 from .playground import (
     character_frequency_approach1,
@@ -236,6 +236,19 @@ def test_check_anagram(string1, string2, expected):
     ],
 )
 def test_validate_ip_address(ip_address, valid):
-    print("Testing equal point in brackets")
+    print("Testing ip address validation")
     assert validate_ip_address(ip_address) == valid
+    print("Test passed !")
+
+
+@pytest.mark.parametrize(
+    "string1, string2, expected",
+    [
+        ("00100", "010", "110"),
+        ("1101", "111", "10100"),
+    ],
+)
+def test_add_two_binary_strings(string1, string2, expected):
+    print("Testing addition of two binary strings")
+    assert add_two_binary_strings(string1, string2) == expected
     print("Test passed !")

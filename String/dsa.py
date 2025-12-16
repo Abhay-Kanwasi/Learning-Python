@@ -670,9 +670,35 @@ Output: "110"
 
 
 def add_two_binary_strings(string1, string2):
-    ...
+    """
+    Add two binary numbers represented as strings and return their sum as a binary string.
 
+    This function takes two binary strings (e.g., "1101", "111"), converts each into
+    its decimal equivalent by iterating through the reversed string and applying
+    positional powers of 2, then adds the two decimal values. The result is converted
+    back into binary by repeatedly dividing by 2 and collecting remainders.
+    """
+    power = 0
+    value_of_string1 = 0
+    for integer in string1[::-1]:
+        value_of_string1 += int(integer) * (2 ** power)
+        power += 1
+
+    power = 0
+    value_of_string2 = 0
+    for integer in string2[::-1]:
+        value_of_string2 += int(integer) * (2 ** power) #
+        power += 1
+
+    binary = ""
+    total_value = value_of_string1 + value_of_string2
+    while total_value > 0:
+        divisor = total_value // 2
+        remainder = total_value % 2
+        binary += str(remainder)
+        total_value = divisor
+    return str(binary[::-1])
 
 
 if __name__ == "__main__":
-    print(add_two_binary_strings('125.112.100.abc'))
+    print(add_two_binary_strings('00100',  '010'))
