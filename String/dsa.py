@@ -701,4 +701,4 @@ def add_two_binary_strings(string1, string2):
 
 
 if __name__ == "__main__":
-    print(add_two_binary_strings('00100',  '010'))
+    ...
