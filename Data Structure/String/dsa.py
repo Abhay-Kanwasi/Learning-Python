@@ -698,7 +698,3 @@ def add_two_binary_strings(string1, string2):
         binary += str(remainder)
         total_value = divisor
     return str(binary[::-1])
-
-
-if __name__ == "__main__":
-    ...
