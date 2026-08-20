@@ -61,6 +61,23 @@ s = 'Ocean'
 s1 = set(lst)
 s2 = set(tpl)
 s3 = set(s)
-print(f"s1={s1}\ns2={s2}\ns3={s3}\n")
+# print(f"s1={s1}\ns2={s2}\ns3={s3}\n")
 
 
+# Mathematical Operations
+
+# sets
+engineers = {'Ravi', 'Ram', 'Shaam', 'Abhay'}
+managers = {'Ram', 'Ramesh'}
+
+# union
+print(engineers | managers)
+
+# intersection
+print(engineers & managers)
+
+# difference
+print(engineers - managers)
+
+# symmetric difference
+print(managers ^ engineers)
