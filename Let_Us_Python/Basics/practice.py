@@ -32,3 +32,21 @@ Syntax: lambda arguments : expression (: separates the parameters to be passed t
 # examples
 ## function that receives and argument and return it's cube
 print(type((lambda x : x*x*x)(3)))
+
+
+# Higher order functions
+
+# def: it is a function that can receive other functions as arguments or return them
+
+d = {'Oil': 230, 'Clip':150, 'Stud':175, 'Nut': 35}
+# lambda  takes a dictionary items and return a value
+de = sorted(d.items(), key=lambda kv: kv[1])
+print(de)
+
+# 3 higher order functions - map, filter, reduce
+
+def func(n):
+    return n * n
+lst = [2,3,4]
+r = map(func, lst)
+print(list(r))
