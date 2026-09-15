@@ -30,4 +30,4 @@ print(f'product {product}')
 
 # select max(salary) from employees where grade = 'skilled'
 
-# reduce(max, map(get_salary, filter(lambda x: x.grade() == 'skilled', employees)))
+# reduce(max, map(get_salary, filter(lambda x: x.grade() == 'skilled', employees))) 
