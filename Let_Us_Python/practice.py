@@ -17,8 +17,13 @@ print(f"new_lst {new_lst}")
 numbers = [2, 3, 4, 5, 6]
 
 even_numbers = list(filter(lambda x: x % 2 == 0, lst1))
-
 print(f'even_numbers {even_numbers}')
 
 
 # Q. Multiply all the numbers
+from functools import reduce
+
+numbers = [2, 3, 4, 5, 6]
+
+product = reduce(lambda x, y: x * y, numbers)
+print(f'product {product}')
