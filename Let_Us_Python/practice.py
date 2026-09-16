@@ -28,6 +28,9 @@ numbers = [2, 3, 4, 5, 6]
 product = reduce(lambda x, y: x * y, numbers)
 print(f'product {product}')
 
+
+# SQL Example
 # select max(salary) from employees where grade = 'skilled'
 
+# In terms of map reduce
 # reduce(max, map(get_salary, filter(lambda x: x.grade() == 'skilled', employees))) 
