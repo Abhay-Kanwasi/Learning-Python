@@ -16,25 +16,27 @@ public and private memebers.
 """
 
 
-# class Employee:
-#     def set_data(self, name, age, salary):
-#         self._name = name
-#         self._age = age
-#         self._salary = salary
+class Employee:
+    def set_data(self, name='', age=0, salary=0):
+        self._name = name
+        self._age = age
+        self._salary = salary
 
-#     def display_data(self):
-#         print(self._name)
-#         print(self._age)
-#         print(self._salary)
+    def __init__(self, name='', age=0, salary=0):
+        self._name = name
+        self._age = age
+        self._salary = salary
 
-# employee1 = Employee()
+    def display_data(self):
+        print(self._name)
+        print(self._age)
+        print(self._salary)
+
+employee1 = Employee()
 # employee2 = Employee()
 
 # employee1.set_data("John", 25, 50000)   
-# employee1.display_data()
-
-
-
+employee1.display_data()
 
 # print(Employee.__name__)
 
