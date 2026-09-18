@@ -30,4 +30,39 @@ Constraints:
 """
 
 
+# First approch
+n = int(input("Given integer: "))
+output = []
+for number in range(1, n+1):
+    if number % 3 == 0 and number % 5 == 0:
+        output.append("FizzBuzz")
+    elif number % 3 == 0:
+        output.append("Fizz")
+    elif number % 5 == 0:
+        output.append("Buzz")
+    else:
+        output.append(str(number))
+
+print(f"Output: {output}")
+
+
+# Second approch
+"""
+This created a list early like if n = 3 it means answer = [0, 0, 0] it creates list first and then just replace the values later
+"""
+n = int(input("Given integer: "))
+answer=[0]*n 
+for i in range(n):
+    if (i+1)%3==0 and (i+1)%5==0:
+        answer[i]="FizzBuzz"
+    elif (i+1)%3==0:
+        answer[i]="Fizz"
+    elif (i+1)%5==0:
+        answer[i]="Buzz"
+    else:
+        answer[i]=str(i+1)
+
+print(f"Output: {answer}")
+
+        
 
