@@ -21,3 +21,9 @@ Constraints:
 low = int(input("low: "))
 high = int(input("high: "))
 
+output = 0
+for number in range(low, high+1):
+    if number % 2 != 0:
+        output += 1
+
+print(f"Output: {output}")
