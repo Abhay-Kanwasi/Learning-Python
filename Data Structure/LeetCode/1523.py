@@ -18,6 +18,7 @@ Constraints:
 0 <= low <= high <= 10^9
 """
 
+# Approch 1
 low = int(input("low: "))
 high = int(input("high: "))
 
@@ -27,3 +28,9 @@ for number in range(low, high+1):
         output += 1
 
 print(f"Output: {output}")
+
+# this approch exceed constraints
+
+
+# Approch 2
+print(f'Second approch output : {(high + 1) // 2 - (low // 2)}')
