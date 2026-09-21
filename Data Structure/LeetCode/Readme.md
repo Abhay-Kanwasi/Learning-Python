@@ -67,7 +67,7 @@ Adding 1 before dividing does exactly that:
 
 - n odd → n+1 is even → divides perfectly → gives (n+1)/2
 
-### Why not n // 2 + 1?
+#### Why not n // 2 + 1?
 Because n // 2 + 1 always adds 1, even when n is even.
 
 Example: n = 6
@@ -81,3 +81,60 @@ The +1 should only happen when n is odd. Adding it before the division lets the 
 <b>One line answer</b>
 
 We add 1 before dividing so that the division rounds up for odd n and stays for even n. That is exactly what counting odd numbers needs.
+
+
+## Problem 389
+
+- Approch 1 brute force approch
+- Approch 2 is best approch for this scenario
+
+### Simple intution behind Approch 3
+XOR(^ it is a bitwise operator) every character of s and t together. Matching characters cancel to 0, only the extra one survives.
+
+So we just loop through both strings and storing all in result variable so whenever it gets the same value it cancel it and the one don't have any value similar to get filter out we just need to convert it back to character using chr.
+
+Note: When you will see it per iteration you will see numbers getting 97 to 23 or like this don't worry about them just keep in mind how xor works.
+
+Why it works:
+
+```text
+a ^ a = 0
+a ^ 0 = a
+```
+So s and t characters cancel, leaving the extra letter.
+
+But python doesn't allow ^ on strings but we can avoid it by using ord and chr methods.
+
+Let's say:
+
+```text
+s = "ab"
+t = "abc"
+```
+
+Characters and ASCII:
+
+```text
+a = 97
+b = 98
+c = 99
+```
+
+Now trace:
+text
+result = 0
+
+<b>loop over s</b>
+result ^= 97   → 0 ^ 97 = 97
+result ^= 98   → 97 ^ 98 = 3
+
+<b>loop over t</b>
+result ^= 97   → 3 ^ 97 = 98
+result ^= 98   → 98 ^ 98 = 0
+result ^= 99   → 0 ^ 99 = 99
+
+result = 99 → chr(99) = 'c'
+Look at the intermediate values: 0 → 97 → 3 → 98 → 0 → 99.
+
+Intermediate values look random because XOR mixes bits unpredictably.
+
