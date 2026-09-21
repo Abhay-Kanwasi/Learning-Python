@@ -138,3 +138,22 @@ Look at the intermediate values: 0 → 97 → 3 → 98 → 0 → 99.
 
 Intermediate values look random because XOR mixes bits unpredictably.
 
+
+## Problem 1160
+
+- Approch 1 not a brute force solution we are running by counting frequency.
+
+First,
+Count how many times each character appears in chars.
+
+For each word:
+   - Count how many times each character appears in the word.
+   - For each character in the word:
+          if the word needs more of it than chars has:
+              this word fails, stop checking.
+   - If the word never failed, add its length to total.
+
+Return total.
+
+
+
