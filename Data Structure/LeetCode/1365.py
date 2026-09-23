@@ -27,3 +27,29 @@ Constraints:
 2 <= nums.length <= 500
 0 <= nums[i] <= 100
 """
+
+# Approch 1
+nums = [8,1,2,2,3]
+mapp = []
+count = 0
+for i in nums:
+    for j in nums:
+        print(f"i {i} : j {j}")
+        if i > j:
+            count += 1
+    mapp.append(count)
+    count = 0
+print(mapp)
+
+# Output limit excced
+
+
+# Approch 2
+nums = [8,1,2,2,3]
+length = len(nums)
+output = [0] * length
+for index in range(length):
+    for index_ in range(length):
+        if nums[index] > nums[index_]:
+            output[index] += 1
+print(output)
