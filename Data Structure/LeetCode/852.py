@@ -34,3 +34,13 @@ def peakIndexInMountainArray(self, arr: list[int]) -> int:
         else:                          # condition is FALSE → peak to the right
             lo = mid + 1
     return lo  
+
+def peakIndexInMountainArray(arr):
+    lo, hi = 0, len(arr) - 1
+    while lo < hi:
+        mid = lo + (hi - lo) // 2
+        if arr[mid] < arr[mid + 1]:
+            lo = mid + 1      # peak is to the right
+        else:
+            hi = mid          # peak is at mid or to the left
+    return lo                 # lo == hi == peak index
