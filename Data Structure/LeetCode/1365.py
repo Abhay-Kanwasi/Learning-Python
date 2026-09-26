@@ -53,15 +53,3 @@ for index in range(length):
         if nums[index] > nums[index_]:
             output[index] += 1
 print(output)
-
-
-# Approch 3 
-def peakIndexInMountainArray(arr):
-    lo, hi = 0, len(arr) - 1
-    while lo < hi:
-        mid = (lo + hi) >> 1
-        # Branchless update: pick lo or hi without an if/else branch
-        lo, hi = (
-            (mid + 1, hi) if arr[mid] < arr[mid + 1] else (lo, mid)
-        )
-    return lo
