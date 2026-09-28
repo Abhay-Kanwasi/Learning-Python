@@ -32,11 +32,12 @@ class Employee:
         print(self._age)
         print(self._salary)
 
-employee1 = Employee()
+
+# employee1 = Employee()
 # employee2 = Employee()
 
 # employee1.set_data("John", 25, 50000)   
-employee1.display_data()
+# employee1.display_data()
 
 # print(Employee.__name__)
 
@@ -56,3 +57,31 @@ employee1.display_data()
 # h.work() # calling method using object | work(h)
 
 # print(Human.__doc__)
+
+
+# Global functions
+# vars() and dir()
+
+# vars(): return a dictionary of attributes and their values.
+# dir(): return a list of attributs.
+
+
+class Fruit:
+    count = 0
+
+    def __init__(self, name='', size=0, color=''):
+        self.name = name
+        self.size = size
+        self.color = color
+        Fruit.count += 1
+
+    def display():
+        print(Fruit.count)
+
+
+f1 = Fruit('Banana', 5, 'Yellow')
+print(f'vars Fruit {vars(Fruit)}')
+print(f'dir Fruit {dir(Fruit)}')
+
+print(f'object fruit {vars(f1)}')
+print(f'object fruit {dir(f1)}')
