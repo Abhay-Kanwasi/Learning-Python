@@ -56,6 +56,7 @@ def romanToInt(self, s: str) -> int:
             total += values[s[i]]
     return total
 
+
 # Approch 2
 def romanToInt(self, s: str) -> int:
     table = [
@@ -72,3 +73,15 @@ def romanToInt(self, s: str) -> int:
                 i += len(sym)
                 break
     return total
+
+
+# Approch 3
+import re
+def romanToInt(self, s: str) -> int:
+    pattern = "IV|IX|XL|XC|CD|CM|I|V|X|L|C|D|M"
+    values = {
+        "I": 1, "V": 5, "X": 10, "L": 50, "C": 100,
+        "D": 500, "M": 1000, "IV": 4, "IX": 9, "XL": 40,
+        "XC": 90, "CD": 400, "CM": 900
+    }
+    return sum(values[m] for m in re.findall(pattern, s))
