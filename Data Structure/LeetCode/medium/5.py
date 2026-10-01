@@ -52,3 +52,38 @@ def longestPalindrome(self, s: str) -> str:
                 max_length = length
     
     return s[start:start + max_length]
+
+
+# Approch 2
+def longestPalindrome(self, s: str) -> str:
+        if not s:
+            return ""
+    
+        start = 0
+        max_length = 1
+        
+        def expand_around_center(left: int, right: int) -> int:
+            """Returns the length of palindrome expanding from center"""
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                left -= 1
+                right += 1
+            # Return length of palindrome (right - left - 1)
+            return right - left - 1
+        
+        for i in range(len(s)):
+            # Check for odd length palindromes (center at i)
+            len1 = expand_around_center(i, i)
+            
+            # Check for even length palindromes (center between i and i+1)
+            len2 = expand_around_center(i, i + 1)
+            
+            # Get the maximum length
+            current_max = max(len1, len2)
+            
+            # Update if we found a longer palindrome
+            if current_max > max_length:
+                max_length = current_max
+                # Calculate start position
+                start = i - (current_max - 1) // 2
+        
+        return s[start:start + max_length]
