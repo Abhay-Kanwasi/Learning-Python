@@ -32,11 +32,13 @@ def isPalindrome(x: int) -> bool:
         return True
     if x < 0:
         return False
-    reverse = ''
+    result = 0
     real = x
     while x > 0:
-        reverse += str(x % 10)
+        remainder = x % 10
+        result = result * 10 + remainder 
         x = x // 10
-    return True if real == int(reverse) else False
+        print(result)
+    return real == result 
 
 print(isPalindrome(x))
