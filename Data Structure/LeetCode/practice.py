@@ -14,3 +14,45 @@ print(count)
 n = 5873
 from math import log10
 print(int(log10(n) + 1))
+
+
+# Print all factors of a given number
+
+num = 20
+
+# Approch 1 (Brute Force)
+
+result = []
+for number in range(1, num+1):
+    if num % number == 0:
+        result.append(number)
+print(result) 
+
+
+# Approch 2 (Divisor Property)
+
+result = []
+half = num // 2
+print(half)
+for number in range(1, half+1):
+    if num % number == 0:
+        result.append(number)
+result.append(num)
+print(result)
+
+
+# Approch 3 (Square root)
+
+num = 36
+
+from math import sqrt
+result = []
+square_root = int(sqrt(num))
+for number in range(1, square_root+1):
+    if num % number == 0:
+        result.append(number)
+        output = num // number
+        if output != number:
+            result.append(output)
+print(result)
+
