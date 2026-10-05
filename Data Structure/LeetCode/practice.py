@@ -56,3 +56,28 @@ for number in range(1, square_root+1):
             result.append(output)
 print(result)
 
+
+# Frequency Map or Dictionary
+
+# Store the frequency in dictionary
+
+nums = [5, 6, 7, 7, 7, 8, 4, 5, 6, 6]
+
+# Approch 1
+freq_map = {}
+
+for num in nums:
+    if num in freq_map:
+        freq_map[num] += 1
+    else:
+        freq_map[num] = 1
+
+print(freq_map)
+
+# Approch 2
+freq_map = {}
+
+for num in nums:
+    freq_map[num] = freq_map.get(num, 0) + 1
+
+print(freq_map)
