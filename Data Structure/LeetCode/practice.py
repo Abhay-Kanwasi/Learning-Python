@@ -1,4 +1,4 @@
-# Count the number of digits in integer
+# Problem: Count the number of digits in integer
 
 # Approch 1
 n = 5873
@@ -16,12 +16,11 @@ from math import log10
 print(int(log10(n) + 1))
 
 
-# Print all factors of a given number
+# Problem: Print all factors of a given number
 
 num = 20
 
 # Approch 1 (Brute Force)
-
 result = []
 for number in range(1, num+1):
     if num % number == 0:
@@ -30,7 +29,6 @@ print(result)
 
 
 # Approch 2 (Divisor Property)
-
 result = []
 half = num // 2
 print(half)
@@ -42,7 +40,6 @@ print(result)
 
 
 # Approch 3 (Square root)
-
 num = 36
 
 from math import sqrt
@@ -59,7 +56,7 @@ print(result)
 
 # Frequency Map or Dictionary
 
-# Store the frequency in dictionary
+# Problem:  Store the frequency in dictionary
 
 nums = [5, 6, 7, 7, 7, 8, 4, 5, 6, 6]
 
@@ -81,3 +78,17 @@ for num in nums:
     freq_map[num] = freq_map.get(num, 0) + 1
 
 print(freq_map)
+
+
+# Problem: Print how many time each value of m are present in n. 
+n = [11, 3, 2, 2, 5, 7, 10]
+m = [10, 2, 2, 11, 6, 7, 8]
+
+number_hash = {}
+for m_number in m:
+    count = 0
+    for n_number in n:
+        if m_number == n_number:
+            count += 1
+    number_hash[m_number] = count
+print(number_hash)
