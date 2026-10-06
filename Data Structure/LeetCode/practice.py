@@ -1,3 +1,7 @@
+#######################
+# EXTRACTION OF DIGIT
+#######################
+
 # Problem: Count the number of digits in integer
 
 # Approch 1
@@ -8,7 +12,6 @@ while n > 0:
     n = n // 10
     count += 1
 # print(count)
-
 
 # Approch 2
 n = 5873
@@ -27,7 +30,6 @@ for number in range(1, num+1):
         result.append(number)
 # print(result) 
 
-
 # Approch 2 (Divisor Property)
 result = []
 half = num // 2
@@ -36,7 +38,6 @@ for number in range(1, half+1):
         result.append(number)
 result.append(num)
 # print(result)
-
 
 # Approch 3 (Square root)
 num = 36
@@ -52,6 +53,11 @@ for number in range(1, square_root+1):
             result.append(output)
 # print(result)
 
+
+
+###################
+#   HASHING
+###################
 
 # Frequency Map or Dictionary
 
