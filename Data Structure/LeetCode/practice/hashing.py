@@ -1,60 +1,3 @@
-#######################
-# EXTRACTION OF DIGIT
-#######################
-
-# Problem: Count the number of digits in integer
-
-# Approch 1
-n = 5873
-count = 0
-
-while n > 0:
-    n = n // 10
-    count += 1
-# print(count)
-
-# Approch 2
-n = 5873
-from math import log10
-# print(int(log10(n) + 1))
-
-
-# Problem: Print all factors of a given number
-
-num = 20
-
-# Approch 1 (Brute Force)
-result = []
-for number in range(1, num+1):
-    if num % number == 0:
-        result.append(number)
-# print(result) 
-
-# Approch 2 (Divisor Property)
-result = []
-half = num // 2
-for number in range(1, half+1):
-    if num % number == 0:
-        result.append(number)
-result.append(num)
-# print(result)
-
-# Approch 3 (Square root)
-num = 36
-
-from math import sqrt
-result = []
-square_root = int(sqrt(num))
-for number in range(1, square_root+1):
-    if num % number == 0:
-        result.append(number)
-        output = num // number
-        if output != number:
-            result.append(output)
-# print(result)
-
-
-
 ###################
 #   HASHING
 ###################
@@ -101,6 +44,7 @@ m = [10, 2, 2, 11, 6, 7, 8]
 
 # Approch 1
 number_hash = {}
+
 for m_number in m:
     if m_number < 1 or m_number > 10:
         pass
@@ -110,7 +54,8 @@ for m_number in m:
             if m_number == n_number:
                 count += 1
         number_hash[m_number] = count
-print(number_hash)
+# print(number_hash)
+# Will get TLE
 
 # Approch 2
 number_hash = {}
@@ -122,7 +67,6 @@ for number in n:
     else:
         hash_list[number] += 1
         number_hash[number] = 0
-    
 
 for number in m:
     if number < 1 or number > 10:
@@ -130,4 +74,49 @@ for number in m:
     else:
         number_hash[number] = hash_list[number]
 
-print(number_hash) 
+# print(number_hash) 
+
+
+"""
+Problem: Print how many time each value of q are present in s. 
+s = "azyxyyzaaaa"
+q = ["d", "a", "y", "z"]
+
+Constraints
+a) a <= s[i] <= z
+"""
+
+s = "azyxyyzaaaa"
+q = ["d", "a", "y", "z"]
+
+# Approch 1
+character_hash = {}
+character_list = [0] * 26 # all values will be small character and a-z we get total of 26 characters
+
+for character in s:
+    index = ord(character) - 97
+    character_list[index] += 1
+    character_hash[character] = 0
+
+for character in q:
+    index = ord(character) - 97
+    character_hash[character] = character_list[index]
+print(character_hash)
+
+# Approch 2
+character_hash = {}
+
+for character in s:
+    if character in character_hash:
+        character_hash[character] += 1
+    else:
+        character_hash[character] = 1
+
+result = {}
+for character in q:
+    result[character] = character_hash.get(character, 0)
+
+print(result)
+
+
+
