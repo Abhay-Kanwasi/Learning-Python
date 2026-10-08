@@ -24,7 +24,7 @@ example()
 def func(x, n):
     if n == 0:
         return 
-    print(x)
+    # print(x)
     func(2, n - 1)
 
 func(2, 4)
@@ -34,7 +34,7 @@ func(2, 4)
 def example(i, n):
     if i > n:
         return
-    print(i) 
+    # print(i) 
     example(i+1, n)
 
 example(1, 5)
@@ -43,7 +43,17 @@ example(1, 5)
 def example(n):
     if n == 0:
         return
-    print(n)
+    # print(n)
     example(n - 1)
 
 example(5)
+
+# Print sum of 1 to n values 
+
+def total(sum, i, n):
+    if i > n:
+        print(sum)
+        return sum
+    total(sum + i, i+1, n)
+
+print(f'total: {total(0, 1, 4)}')
