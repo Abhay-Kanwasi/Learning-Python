@@ -39,6 +39,7 @@ def example(i, n):
 
 example(1, 5)
 
+
 # Print 1 to n using head recursion 
 def example(n):
     if n == 0:
@@ -48,8 +49,8 @@ def example(n):
 
 example(5)
 
-# Print sum of 1 to n values 
 
+# Print sum of 1 to n values 
 def total(sum, i, n):
     if i > n:
         print(sum)
@@ -57,3 +58,4 @@ def total(sum, i, n):
     total(sum + i, i+1, n)
 
 print(f'total: {total(0, 1, 4)}')
+
