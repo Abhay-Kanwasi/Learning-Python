@@ -38,3 +38,14 @@ def commonFactors(a: int, b: int) -> int:
     if g > 1:  # remaining prime factor
         count *= 2
     return count
+
+def commonFactors(self, a: int, b: int) -> int:
+    def factors(n):
+        result = set()
+        for i in range(1, int(n**0.5) + 1):
+            if n % i == 0:
+                result.add(i)
+                result.add(n // i)
+        return result
+    
+    return len(factors(a) & factors(b))
