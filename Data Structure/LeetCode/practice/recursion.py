@@ -67,7 +67,7 @@ def total(sum, i, n):
     sum += i
     return sum + total(sum, i+1, n)
 
-print(f'total: {total(0, 1, 4)}')
+# print(f'total: {total(0, 1, 4)}')
 
 
 # Print factorial of a number
@@ -78,4 +78,20 @@ def factorial(number):
         return number * factorial(number - 1)
 
 number = 5
-print(f'factorial of {number} is {factorial(number)}')
+# print(f'factorial of {number} is {factorial(number)}')
+
+
+# Reverse an array using recursion
+def func(arr, left, right):
+    if left >= right:
+        return arr
+    arr[left], arr[right] = arr[right], arr[left]
+    # behind the scene of above statement
+    # temp = (arr[right], arr[left])   # build tuple
+    # arr[left]  = temp[0]             # unpack
+    # arr[right] = temp[1]
+
+    return func(arr, left+1, right-1)
+
+arr = [2, 5, 1, 4, 5]
+print(func(arr, 0, 4))
