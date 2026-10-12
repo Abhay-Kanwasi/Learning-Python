@@ -51,11 +51,31 @@ example(5)
 
 
 # Print sum of 1 to n values 
+# def total(sum, i, n):
+#     if i > n:
+#         print(sum)
+#         return sum
+#     total(sum + i, i+1, n)
+
+
 def total(sum, i, n):
+    print(f'sum value {sum}: {i}')
     if i > n:
         print(sum)
         return sum
-    total(sum + i, i+1, n)
+    print("coming here")
+    sum += i
+    return sum + total(sum, i+1, n)
 
 print(f'total: {total(0, 1, 4)}')
 
+
+# Print factorial of a number
+def factorial(number):
+    if number == 0 or number == 1:
+        return 1
+    else:
+        return number * factorial(number - 1)
+
+number = 5
+print(f'factorial of {number} is {factorial(number)}')
