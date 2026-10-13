@@ -68,7 +68,7 @@ def total(sum, i, n):
 # print(f'total: {total(0, 1, 4)}')
 
 
-# Print factorial of a number
+# Print factorial of a number (Non-Tail (Linear) Recursion)
 def factorial(number):
     if number == 0 or number == 1:
         return 1
@@ -77,6 +77,13 @@ def factorial(number):
 
 number = 5
 # print(f'factorial of {number} is {factorial(number)}')
+
+
+# Print factorial of a number using tail recursion
+def factorial(number, acc=1):
+    if number == 0 or number == 1:
+        return acc
+    return factorial(number - 1, acc * number) 
 
 
 # Reverse an array using recursion
