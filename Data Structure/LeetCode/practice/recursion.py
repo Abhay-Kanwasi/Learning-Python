@@ -94,4 +94,21 @@ def func(arr, left, right):
     return func(arr, left+1, right-1)
 
 arr = [2, 5, 1, 4, 5]
-print(func(arr, 0, 4))
+# print(func(arr, 0, 4))
+
+
+# Check palindrome using recursion
+def is_palindrome(string, start, end):
+
+    if start >= end:
+        return True
+
+    if string[start] != string[end]:
+        return False
+    
+    return is_palindrome(string, start+1, end-1)
+
+string = "nitin"
+length = len(string) - 1
+print(is_palindrome(string, 0, end=length))
+
