@@ -61,11 +61,9 @@ example(5)
 def total(sum, i, n):
     print(f'sum value {sum}: {i}')
     if i > n:
-        print(sum)
         return sum
-    print("coming here")
     sum += i
-    return sum + total(sum, i+1, n)
+    return total(sum, i+1, n)
 
 # print(f'total: {total(0, 1, 4)}')
 
@@ -111,4 +109,3 @@ def is_palindrome(string, start, end):
 string = "nitin"
 length = len(string) - 1
 print(is_palindrome(string, 0, end=length))
-
