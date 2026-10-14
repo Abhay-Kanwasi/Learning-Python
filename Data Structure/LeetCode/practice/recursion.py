@@ -118,10 +118,18 @@ length = len(string) - 1
 print(is_palindrome(string, 0, end=length))
 
 
-# Febonacci Number
+# Febonacci Number using 2 functions
 def fib(n: int) -> int:
     if n == 0 or n == 1:
         return n
     return fib(n-1) + fib(n-2)
 
 print(fib(6))
+
+# Febonacci number using 1 function
+def fibonacci(n, current=0, next_=1):
+    if n == 0:
+        return current
+    return fibonacci(n - 1, next_, current + next_)
+
+print(fibonacci(6, 0, 1))
