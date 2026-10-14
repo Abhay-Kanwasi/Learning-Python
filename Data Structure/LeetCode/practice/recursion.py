@@ -116,3 +116,12 @@ def is_palindrome(string, start, end):
 string = "nitin"
 length = len(string) - 1
 print(is_palindrome(string, 0, end=length))
+
+
+# Febonacci Number
+def fib(n: int) -> int:
+    if n == 0 or n == 1:
+        return n
+    return fib(n-1) + fib(n-2)
+
+print(fib(6))
