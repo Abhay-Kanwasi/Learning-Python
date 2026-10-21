@@ -45,3 +45,6 @@ def lengthOfLastWord(s: str) -> int:
 def lengthOfLastWord(s: str) -> int:
     words = s.split()
     return len(words[-1]) if words else 0
+
+def lengthOfLastWord(s: str) -> int:
+    return len(s.split()[-1])
