@@ -49,7 +49,7 @@ for i in range(length - 2, -1, -1): # Why Each pass puts the biggest number in i
             nums[current], nums[next] = nums[next], nums[current] 
 print(f'Result of optimized ascending sorting: {nums}')
 
-# most optimized version (time complexity O(n) in average and worst is still O(n^2), space complexity O(1))
+# most optimized version (Best case O(n) (already sorted, exits after 1 pass), average and worst O(n²), space O(1))
 nums = [5, 3, 8, 4, 2]
 for i in range(length - 2, -1, -1):
     swapped = False
