@@ -41,3 +41,12 @@ def addBinary(a: str, b: str) -> str:
 
 def addBinary(a: str, b: str) -> str:
     return bin(int(a, 2) + int(b, 2))[2:]
+
+
+def addBinary(a: str, b: str) -> str:
+    x, y = int(a, 2), int(b, 2)
+    while y:
+        answer = x ^ y              # sum without carry
+        carry = (x & y) << 1        # carry shifted left
+        x, y = answer, carry
+    return bin(x)[2:]
