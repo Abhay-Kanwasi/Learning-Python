@@ -1,5 +1,5 @@
 """
-Number of Common Factors
+2427. Number of Common Factors
 
 Given two positive integers a and b, return the number of common factors of a and b.
 
