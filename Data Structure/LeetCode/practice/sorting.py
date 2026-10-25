@@ -60,3 +60,33 @@ for i in range(length - 2, -1, -1):
     if not swapped:          # a full pass with no swaps ⇒ sorted
         break
 print(f'Result of most optimized ascending sorting: {nums}')
+
+
+# INSERTION SORT
+
+print("\nINSERTION SORT")
+
+nums = [3, 5, 4, 9, 2]
+
+"""
+Variable	    Meaning
+current_index	The position of the element we're currently inserting into the sorted portion
+key	            The value being inserted (the "card" we're placing in our hand)
+compare_index	Walks leftward through the sorted portion, comparing each element to key
+"""
+
+# Start from index 1 — the first element is already "sorted" (Time: O(n²) worst case (reverse-sorted), O(n) best case (already sorted) and Space: O(1) — sorts in place..
+
+for current_index in range(1, len(nums)):
+    key = nums[current_index]        # element we want to insert into the sorted portion
+    compare_index = current_index - 1
+
+    # Shift elements of nums[0..current_index-1] that are greater than key one position right
+    while compare_index >= 0 and nums[compare_index] > key:
+        nums[compare_index + 1] = nums[compare_index]
+        compare_index -= 1
+
+    # Place key in its correct position
+    nums[compare_index + 1] = key
+
+print(nums)   # [2, 3, 4, 5, 9]
