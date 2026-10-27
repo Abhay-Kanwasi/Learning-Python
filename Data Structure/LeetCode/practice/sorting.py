@@ -151,3 +151,41 @@ def mergeSort(arr, left, right):
     return arr
 
 print(mergeSort(nums, 0, len(nums) - 1))
+
+
+# QUICK SORT
+
+print("\nQUICK SORT")
+
+def quick_sort(arr, low=0, high=None):
+    if high is None:
+        high = len(arr) - 1
+    
+    if low < high:
+        pivot_idx = partition(arr, low, high)
+        quick_sort(arr, low, pivot_idx)
+        quick_sort(arr, pivot_idx + 1, high)
+    
+    return arr
+
+
+def partition(arr, low, high):
+    pivot = arr[(low + high) // 2]   # middle element as pivot
+    i, j = low - 1, high + 1
+    
+    while True:
+        i += 1
+        while arr[i] < pivot:
+            i += 1
+        j -= 1
+        while arr[j] > pivot:
+            j -= 1
+        if i >= j:
+            return j
+        arr[i], arr[j] = arr[j], arr[i]
+
+
+# Usage
+arr = [10, 7, 8, 9, 1, 5]
+quick_sort(arr)
+print(arr)  # [1, 5, 7, 8, 9, 10]
