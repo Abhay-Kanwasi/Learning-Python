@@ -53,3 +53,18 @@ def climbStairs(n: int) -> int:
         dp[i] = dp[i-1] + dp[i-2]
     
     return dp[n]
+
+def climbStairs(n: int) -> int:
+    def fib(k):
+        """Return (F(k), F(k+1)) using fast doubling."""
+        if k == 0:
+            return (0, 1)
+        a, b = fib(k >> 1)
+        c = a * (2 * b - a)
+        d = a * a + b * b
+        if k & 1:
+            return (d, c + d)
+        return (c, d)
+    
+    # Answer is F(n+1)
+    return fib(n + 1)[0]
