@@ -68,3 +68,16 @@ def climbStairs(n: int) -> int:
     
     # Answer is F(n+1)
     return fib(n + 1)[0]
+
+def climbStairs(n: int) -> int:
+    memo = {}
+    
+    def helper(k):
+        if k <= 2:
+            return k
+        if k in memo:
+            return memo[k]
+        memo[k] = helper(k - 1) + helper(k - 2)
+        return memo[k]
+    
+    return helper(n)
