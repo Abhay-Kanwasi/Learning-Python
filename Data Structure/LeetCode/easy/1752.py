@@ -40,3 +40,13 @@ def check(nums: list[int]) -> bool:
             if drops > 1:
                 return False
     return True
+
+def check(nums: list[int]) -> bool:
+        n = len(nums)
+        doubled = nums + nums
+        target = sorted(nums)
+        # Sliding window of size n
+        for i in range(n):
+            if doubled[i:i+n] == target:
+                return True
+        return False
