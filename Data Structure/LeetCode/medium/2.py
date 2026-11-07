@@ -53,3 +53,18 @@ def addTwoNumbers(l1: ListNode | None, l2: ListNode | None) -> ListNode | None:
             l2 = l2.next
 
     return dummy.next
+
+
+def addTwoNumbers(l1: ListNode | None, l2: ListNode | None) -> ListNode | None:
+    def helper(a, b, carry):
+        if not a and not b and not carry:
+            return None
+        x = a.val if a else 0
+        y = b.val if b else 0
+        total = x + y + carry
+        node = ListNode(total % 10)
+        node.next = helper(a.next if a else None,
+                            b.next if b else None,
+                            total // 10)
+        return node
+    return helper(l1, l2, 0)
