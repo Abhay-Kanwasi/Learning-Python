@@ -63,3 +63,9 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
         nums1[k] = nums2[j]
         j -= 1
         k -= 1
+
+def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
+    # Put nums2 at the back of nums1
+    nums1[m:] = nums2
+    # Sort in place
+    nums1.sort()
