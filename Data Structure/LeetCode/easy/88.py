@@ -69,3 +69,12 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
     nums1[m:] = nums2
     # Sort in place
     nums1.sort()
+
+
+import bisect
+def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
+    for val in nums2:
+        pos = bisect.bisect_right(nums1, val, 0, m)
+        nums1.insert(pos, val)   # O(m) shift per insert
+        nums1.pop()              # drop the trailing placeholder 0
+        m += 1
