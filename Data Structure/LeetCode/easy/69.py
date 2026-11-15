@@ -39,3 +39,16 @@ def mySqrt(x: int) -> int:
             right = mid - 1
 
     return right
+
+def mySqrt(x: int) -> int:
+    if x < 2:
+        return x
+    
+    # Initial guess
+    r = x
+    
+    # Newton's method: r = (r + x/r) / 2
+    while r * r > x:
+        r = (r + x // r) // 2
+    
+    return r
