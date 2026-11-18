@@ -7,7 +7,7 @@ print(nums)
 
 # new variable 
 nums = [5, 2, 3, 6, -2, 9]
-num = nums[-1:] + nums[0:5]
+num = nums[-1:] + nums[0:5] # time complexity O(n - 1) slicing complexity depends upon n
 print(num)
 
 # without slicing
@@ -18,3 +18,5 @@ for i in range(n-2, -1, -1):
     nums[i + 1] = nums[i]
 nums[0] = temp
 
+# Time Complexity: O(n-1) ~ O(n)
+# Space Complexity: O(1)
