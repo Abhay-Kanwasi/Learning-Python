@@ -41,3 +41,26 @@ def rotate(nums: list[int], k: int) -> None:
 
 # Time Complexity: => O(k + n -k) => O(n)
 # Space Complexity: O(1)
+
+
+# Optimized Solution
+def rotate(nums: list[int], k: int) -> None:
+    n = len(nums)
+    if n == 0:
+        return
+    k %= n
+    if k == 0:
+        return
+
+    def reverse(left, right):
+        while left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+
+    reverse(n - k, n - 1)   # reverse last k | O(k/2)
+    reverse(0, n - k - 1)   # reverse first n-k | O((n-k)/2)
+    reverse(0, n - 1)       # reverse whole array | O(n/2)
+
+# Time Complexity: O(k/2) + O((n-k)/2) + O(n/2) => O((k+n-k+n)/2) => O(2n/2) => O(n)
+# Space Complexity: O(1)
