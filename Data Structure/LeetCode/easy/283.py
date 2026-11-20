@@ -76,3 +76,6 @@ def moveZeroes(nums: list[int]) -> None:
     return nums
 
 print(moveZeroes(nums))
+
+# Time Complexity: O(n)
+# Space Complexity: O(1)
