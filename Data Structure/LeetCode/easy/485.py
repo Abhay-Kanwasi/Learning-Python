@@ -19,6 +19,7 @@ Constraints:
 nums[i] is either 0 or 1.
 """
 
+# Method 1
 def findMaxConsecutiveOnes(nums: list[int]) -> int:
     max_count = 0
     current = 0
@@ -30,3 +31,17 @@ def findMaxConsecutiveOnes(nums: list[int]) -> int:
         else:
             current = 0
     return max_count
+
+
+# Method 2
+nums = [1,1,0,1,1,1]
+
+count = 0
+max_count = 0
+for index in range(0, len(nums)):
+    if nums[index] == 1:
+        count += 1
+    else:
+        max_count = max(max_count, count)
+        count = 0
+print(max(max_count, count))
