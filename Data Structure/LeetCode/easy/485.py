@@ -45,3 +45,7 @@ for index in range(0, len(nums)):
         max_count = max(max_count, count)
         count = 0
 print(max(max_count, count))
+
+
+# Time Complexity: O(n)
+# Space Complexity: O(1)
