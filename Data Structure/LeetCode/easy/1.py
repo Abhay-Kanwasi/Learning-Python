@@ -34,8 +34,8 @@ Only one valid answer exists.
 """
 
 # Brute force solution
-nums = [3,2,4]
-target = 6
+nums = [2,7,11,15]
+target = 9
 
 def two_sum(nums):
     n = len(nums)
@@ -45,3 +45,21 @@ def two_sum(nums):
                 return [i_index, j_index]
 
 print(two_sum(nums))
+
+# Time Complexity: O((n(n+1))/2) ~ O(n^2)
+# Space Complexity: O(1)
+
+def two_sum(nums):
+    n = len(nums)
+    hash_map = {}
+    remaining = 0
+    for index in range(0, n):
+        remaining = target - nums[index]
+        if remaining in hash_map:
+            return [index, hash_map[remaining]] 
+        hash_map[nums[index]] = index
+
+print(two_sum(nums))
+
+# Time Complexity: O(n)
+# Space Complexity: O(n)
