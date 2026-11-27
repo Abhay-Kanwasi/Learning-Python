@@ -49,6 +49,8 @@ print(two_sum(nums))
 # Time Complexity: O((n(n+1))/2) ~ O(n^2)
 # Space Complexity: O(1)
 
+
+# Optimized solution
 def two_sum(nums):
     n = len(nums)
     hash_map = {}
